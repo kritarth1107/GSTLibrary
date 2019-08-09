@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/drawer_layout">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/gradbg"
+            android:id="@+id/toolbar"
+            app:titleTextColor="#fff"
+            android:elevation="0dp">
+            <RelativeLayout
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.cardview.widget.CardView
+                    android:elevation="8dp"
+                    android:layout_marginRight="50dp"
+                    android:id="@+id/searchbar"
+                    android:gravity="center_vertical"
+                    app:cardCornerRadius="10dp"
+                    android:background="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/searchImageIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_search"/>
+                        <TextView
+                            android:gravity="center_vertical"
+                            android:textSize="12sp"
+                            android:padding="5dp"
+                            android:background="@android:color/white"
+                            android:text="Advanced Search"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@+id/searchImageIcon"/>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:id="@+id/notiIcon2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/NotiIcon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_notifications_active"/>
+                   <!-- <LinearLayout
+                       android:background="@color/colorRed"
+                       android:layout_width="25dp"
+                       android:layout_height="wrap_content"
+                       android:layout_toRightOf="@+id/NotiIcon"/> -->
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/FrameLayoutMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginBottom="70dp">
+
+
+        </FrameLayout>
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/BottomNV"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_alignParentBottom="true"
+    android:background="@color/bottomnavColor"
+    app:menu="@menu/bottom_navigation"
+    app:itemTextColor="@android:color/black"
+    app:itemIconTint="@android:color/black"
+    app:labelVisibilityMode="labeled">
+
+</com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+    </RelativeLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/nav_view"
+
+        app:headerLayout="@layout/headerlayout"
+        app:menu="@menu/navigation_menu">
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>
