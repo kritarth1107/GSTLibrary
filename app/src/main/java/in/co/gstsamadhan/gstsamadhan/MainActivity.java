@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             case R.id.wallet_bottom_navigation:
                                 loadFragment(new ProfileFragment());
                                 toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+
                                 break;
 
                         }

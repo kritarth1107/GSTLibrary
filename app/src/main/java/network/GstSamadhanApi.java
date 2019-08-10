@@ -12,13 +12,12 @@ import retrofit2.http.Query;
 
 public interface GstSamadhanApi {
 
-    @GET("acts")
-    Call<List<Acts>> jsonValues();
+   /* @GET("acts")
+    Call<List<Acts>> jsonValues();*/
 
-    @FormUrlEncoded
-    @POST("search")
-    Call<List<Acts>> json(
-            @Query("value") String val
+    @GET("acts")
+    Call<List<Acts>> getActs(
+            @Query("key") String keyword
     );
 
 }

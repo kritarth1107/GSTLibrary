@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import in.co.gstsamadhan.gstsamadhan.ActsSection;
 import in.co.gstsamadhan.gstsamadhan.R;
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
 
@@ -39,15 +40,27 @@ public class ActsAdapter extends RecyclerView.Adapter<ActsAdapter.MyViewHolder> 
         viewHolder.view_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-/*
-                Intent i = new Intent(mContext, ActsSectionActivity.class);
-                i.putExtra("section_tittle",mData.get(viewHolder.getAdapterPosition()).getTitle());
-                i.putExtra("section_number",mData.get(viewHolder.getAdapterPosition()).getSection());
+
+                Intent i = new Intent(mContext, ActsSection.class);
+                i.putExtra("id",mData.get(viewHolder.getAdapterPosition()).getId());
+                i.putExtra("serial",mData.get(viewHolder.getAdapterPosition()).getSerial());
+                i.putExtra("title",mData.get(viewHolder.getAdapterPosition()).getTitle());
+                i.putExtra("catid",mData.get(viewHolder.getAdapterPosition()).getCatid());
                 i.putExtra("subcatid",mData.get(viewHolder.getAdapterPosition()).getSubcatid());
-                i.putExtra("year", mData.get(viewHolder.getAdapterPosition()).getYear());
-                i.putExtra("chapter", mData.get(viewHolder.getAdapterPosition()).getChapter());
-                mContext.startActivity(i); */
-                Toast.makeText(mContext, mData.get(viewHolder.getAdapterPosition()).getTitle(), Toast.LENGTH_SHORT).show();
+                i.putExtra("section",mData.get(viewHolder.getAdapterPosition()).getSection());
+                i.putExtra("chapter",mData.get(viewHolder.getAdapterPosition()).getChapter());
+                i.putExtra("keynote",mData.get(viewHolder.getAdapterPosition()).getKeynote());
+                i.putExtra("releventrule",mData.get(viewHolder.getAdapterPosition()).getReleventrule());
+                i.putExtra("content",mData.get(viewHolder.getAdapterPosition()).getContent());
+                i.putExtra("userid",mData.get(viewHolder.getAdapterPosition()).getUserid());
+                i.putExtra("postdate",mData.get(viewHolder.getAdapterPosition()).getPostdate());
+                i.putExtra("year",mData.get(viewHolder.getAdapterPosition()).getYear());
+                i.putExtra("description",mData.get(viewHolder.getAdapterPosition()).getDescription());
+                i.putExtra("actCreated",mData.get(viewHolder.getAdapterPosition()).getActCreated());
+                i.putExtra("actUpdated",mData.get(viewHolder.getAdapterPosition()).getActUpdated());
+                i.putExtra("status",mData.get(viewHolder.getAdapterPosition()).getStatus());
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(i);
 
             }
         });
