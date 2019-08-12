@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     BottomNavigationView bottomNavigationView;
     FrameLayout frameLayout;
     CardView searchbar;
+    String frag="Home";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,16 +48,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.home_bottom_navigation:
-                                loadFragment(new HomeFragment());
-                                toolbar.setBackgroundResource(R.drawable.gradbg);
+                                if(frag.equals("Home")){
+
+                                }
+                                else{
+                                    frag="Home";
+                                    loadFragment(new HomeFragment());
+                                }
+
                                 break;
                             case R.id.news_bottom_navigation:
+                                startActivity(new Intent(MainActivity.this,LoginActivity.class));
                                 break;
                             case R.id.scan_bottom_navigation:
+                                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
                                 break;
                             case R.id.wallet_bottom_navigation:
-                                loadFragment(new ProfileFragment());
-                                toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                                if (frag.equals("Wallet")){
+
+                                }
+                                else{
+                                    frag="Wallet";
+                                    loadFragment(new ProfileFragment());
+                                }
+
 
                                 break;
 
@@ -81,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out);
         fragmentTransaction.replace(R.id.FrameLayoutMain, fragment);
         fragmentTransaction.commit();
     }
@@ -97,7 +114,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(GravityCompat.START);
         }
         else {
-            super.onBackPressed();
+
+                super.onBackPressed();
+
+
         }
     }
 

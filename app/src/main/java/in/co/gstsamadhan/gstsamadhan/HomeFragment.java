@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -27,6 +28,7 @@ public class HomeFragment extends Fragment {
         final GridLayout G2 = (GridLayout)view.findViewById(R.id.Gridview2);
         final ImageView arrowImageView = view.findViewById(R.id.arrowImageView);
         final ImageView arrowImageView2 = view.findViewById(R.id.arrowImageView2);
+
         arrowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +43,7 @@ public class HomeFragment extends Fragment {
                 G2.setVisibility(View.GONE);
                 arrowImageView.setVisibility(View.VISIBLE);
                 arrowImageView2.setVisibility(View.GONE);
+
             }
         });
 

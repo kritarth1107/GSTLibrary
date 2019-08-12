@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,7 +74,7 @@ public class ActsAdapter extends RecyclerView.Adapter<ActsAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        holder.view_container.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_scale_animation));
         holder.tv_title.setText(mData.get(position).getTitle());
         holder.tv_section.setText("Section "+mData.get(position).getSection());
         holder.tv_gst.setText(mData.get(position).getSubcatid());

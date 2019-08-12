@@ -15,10 +15,14 @@
         android:roundIcon="@drawable/ic_gst_samadhan_app_favicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplahActivity"></activity>
+        <activity android:name=".AdvancedSearch"></activity>
+        <activity android:name=".Register_Step_2" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".ActsSection" />
         <activity android:name=".ActsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplahActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

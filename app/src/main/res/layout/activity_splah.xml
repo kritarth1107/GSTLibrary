@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplahActivity">
+    tools:context=".SplahActivity"
+    android:background="@android:color/white"
+    android:orientation="vertical">
     <ImageView
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_gst_samadhan_app_favicon"/>
+        android:src="@drawable/ic_logo_red"/>
+    <TextView
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Empoweing GST\nProfessionals Like You"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:text="Recognized by"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:background="@drawable/bgborder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25">
+            <ImageView
+                android:padding="2dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/startupindia"/>
+        </LinearLayout>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:background="@drawable/bgborder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25">
+            <ImageView
+                android:padding="2dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/mobile10x"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:background="@drawable/bgborder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25">
+            <ImageView
+                android:padding="2dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/inc36"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:background="@drawable/bgborder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25">
+            <ImageView
+                android:padding="2dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/msme"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
