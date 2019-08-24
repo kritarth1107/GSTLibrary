@@ -37,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
             }
         });
         RegButton.setOnClickListener(new View.OnClickListener() {

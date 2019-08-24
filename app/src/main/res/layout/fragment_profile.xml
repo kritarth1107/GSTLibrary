@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ProfileFragment">
-
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--
 <LinearLayout
     android:padding="10dp"
     android:orientation="vertical"
@@ -30,6 +35,47 @@
         android:textStyle="bold"
         android:text="Rs. 0"
         android:textSize="30sp"/>
-</LinearLayout>
+</LinearLayout> -->
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/ic_undraw_under_construction_46pa"/>
+        <TextView
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wallet System is Under Construction"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/LoginRegButton"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register Interest"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
+    </LinearLayout>
+</LinearLayout>
 </FrameLayout>
