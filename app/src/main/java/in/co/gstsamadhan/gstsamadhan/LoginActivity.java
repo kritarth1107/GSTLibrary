@@ -87,13 +87,14 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     public void Login(final String Email,final String Password){
+        progressBar.setVisibility(View.VISIBLE);
+        LoginButton.setVisibility(View.GONE);
         StringRequest request = new StringRequest(Request.Method.POST, "https://gstsamadhan.co.in/gstapi/login", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
                     JSONObject jsonObject = new JSONObject(response);
                     String success = jsonObject.getString("loginstatus");
-                    Toast.makeText(LoginActivity.this, success+Email+"-"+Password+"-", Toast.LENGTH_SHORT).show();
 
                     if(success.equals("1")){
                         String client_id = jsonObject.getString("id").trim();
@@ -107,11 +108,14 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else if(success.equals("0")){
                         Snackbar.make(LoginActivity,"Email & Password Missmatch", Snackbar.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.GONE);
+                        LoginButton.setVisibility(View.VISIBLE);
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(LoginActivity.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
-
+                    progressBar.setVisibility(View.GONE);
+                    LoginButton.setVisibility(View.VISIBLE);
 
 
                 }

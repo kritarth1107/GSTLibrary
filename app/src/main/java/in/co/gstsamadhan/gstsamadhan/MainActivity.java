@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                 break;
                             case R.id.news_bottom_navigation:
-                                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+
                                 break;
                             case R.id.scan_bottom_navigation:
-                                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+
                                 break;
                             case R.id.wallet_bottom_navigation:
                                 if (frag.equals("Wallet")){
@@ -102,6 +102,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LoginReg = headerView.findViewById(R.id.LoginRegButton);
         if(sessionManager.isLoggin())
             LoginReg.setVisibility(View.GONE);
+        LoginReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+
+            }
+        });
     }
 
     private void loadFragment(Fragment fragment) {
