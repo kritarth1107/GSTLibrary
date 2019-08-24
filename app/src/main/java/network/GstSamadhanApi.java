@@ -3,6 +3,7 @@ package network;
 import java.util.List;
 
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
+import in.co.gstsamadhan.gstsamadhan.model.User;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -18,6 +19,11 @@ public interface GstSamadhanApi {
     @GET("acts")
     Call<List<Acts>> getActs(
             @Query("key") String keyword
+    );
+    @GET("login")
+    Call<List<User>> login(
+            @Query("username") String username,
+            @Query("password") String password
     );
 
 }

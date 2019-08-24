@@ -16,9 +16,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import in.co.gstsamadhan.gstsamadhan.Session.SessionManager;
 
 
 public class HomeFragment extends Fragment {
+    SessionManager sessionManager;
    
     @Nullable
     @Override
@@ -28,7 +32,7 @@ public class HomeFragment extends Fragment {
         final GridLayout G2 = (GridLayout)view.findViewById(R.id.Gridview2);
         final ImageView arrowImageView = view.findViewById(R.id.arrowImageView);
         final ImageView arrowImageView2 = view.findViewById(R.id.arrowImageView2);
-
+        sessionManager = new SessionManager(getContext());   //SessionManager Declare
         arrowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,9 +66,14 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if(finalI==0)
-                    {
+                    {   if(sessionManager.isLoggin()){
                         Intent i = new Intent(getContext(),ActsActivity.class);
                         startActivity(i);
+                    }
+                    else{
+                        Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+                    }
+
 
                     }
 

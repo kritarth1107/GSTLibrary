@@ -18,9 +18,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import in.co.gstsamadhan.gstsamadhan.Session.SessionManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     GridLayout G1,G2;
@@ -29,15 +32,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     BottomNavigationView bottomNavigationView;
     FrameLayout frameLayout;
-    CardView searchbar;
+    CardView searchbar,LoginReg;
     String frag="Home";
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sessionManager = new SessionManager(this);   //SessionManager Declare
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         searchbar = findViewById(R.id.searchbar);
+
         frameLayout = findViewById(R.id.FrameLayoutMain);
         drawer = findViewById(R.id.drawer_layout);
         bottomNavigationView=findViewById(R.id.BottomNV);
@@ -91,7 +98,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-
+        View headerView = navigationView.getHeaderView(0);
+        LoginReg = headerView.findViewById(R.id.LoginRegButton);
+        if(sessionManager.isLoggin())
+            LoginReg.setVisibility(View.GONE);
     }
 
     private void loadFragment(Fragment fragment) {
@@ -105,13 +115,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
+        switch (menuItem.getItemId()) {
+            case R.id.nav_logout:
+                sessionManager.logout();
+                break;
+
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override
     public void onBackPressed() {
         if(drawer.isDrawerOpen(GravityCompat.START)){
             drawer.closeDrawer(GravityCompat.START);
+
         }
         else {
 
