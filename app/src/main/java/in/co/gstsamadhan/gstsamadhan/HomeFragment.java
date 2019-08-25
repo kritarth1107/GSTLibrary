@@ -66,14 +66,25 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if(finalI==0)
-                    {   if(sessionManager.isLoggin()){
-                        Intent i = new Intent(getContext(),ActsActivity.class);
-                        startActivity(i);
-                    }
-                    else{
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            Intent i = new Intent(getContext(),ActsActivity.class);
+                            startActivity(i);
+                        }
+                    else
                         Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
-                    }
 
+                    }
+                    else if(finalI==1)
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            Intent i = new Intent(getContext(),RulesActivity.class);
+                            startActivity(i);
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
 
                     }
 

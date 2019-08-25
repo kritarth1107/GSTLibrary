@@ -18,10 +18,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.HashMap;
 
 import in.co.gstsamadhan.gstsamadhan.Session.SessionManager;
 
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     CardView searchbar,LoginReg;
     String frag="Home";
     SessionManager sessionManager;
+    TextView UserIdTV,UserEmailTV,UserMobileTV,UserNameTV;
+    LinearLayout UserDetLY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,8 +106,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         View headerView = navigationView.getHeaderView(0);
         LoginReg = headerView.findViewById(R.id.LoginRegButton);
-        if(sessionManager.isLoggin())
+        UserNameTV = headerView.findViewById(R.id.UserNameTV);
+        UserEmailTV = headerView.findViewById(R.id.UserEmailTV);
+        UserMobileTV = headerView.findViewById(R.id.UserMobileTV);
+        UserDetLY = headerView.findViewById(R.id.UserDetLY);
+        if(sessionManager.isLoggin()) {
+            HashMap<String, String> user = sessionManager.getUserDetail();
+
+            String mCLientID = user.get(sessionManager.CLIENT_ID);
+            String mCLientName = user.get(sessionManager.CLIENT_NAME);
+            String mCLientEmail = user.get(sessionManager.CLIENT_EMAIL);
+            String mCLientMobile = user.get(sessionManager.CLIENT_MOBILE);
+
             LoginReg.setVisibility(View.GONE);
+            UserEmailTV.setText(mCLientEmail);
+            UserMobileTV.setText("+91 "+mCLientMobile);
+            UserNameTV.setText(mCLientName);
+            UserDetLY.setVisibility(View.VISIBLE);
+            UserDetLY.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                }
+            });
+        }
         LoginReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActsSection">
+
+    <androidx.appcompat.widget.Toolbar
+        app:title="GST Rules"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/toolbar"
+        app:titleTextColor="#fff"
+        android:elevation="0dp"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/SectionLL"
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/Chapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chapter I: PERMILANARY"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                />
+            <TextView
+                android:id="@+id/Section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Section 1"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:id="@+id/Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tittle"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Content"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/BottomNVsection"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bottomnavColor"
+        app:menu="@menu/bottomacts"
+        app:itemTextColor="@android:color/black"
+        app:itemIconTint="@android:color/black"
+        app:labelVisibilityMode="labeled">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>

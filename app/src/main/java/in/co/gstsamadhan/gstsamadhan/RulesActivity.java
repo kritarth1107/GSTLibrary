@@ -1,6 +1,5 @@
 package in.co.gstsamadhan.gstsamadhan;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -19,24 +18,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import in.co.gstsamadhan.gstsamadhan.Adapter.ActsAdapter;
+import in.co.gstsamadhan.gstsamadhan.Adapter.RulesAdapter;
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
+import in.co.gstsamadhan.gstsamadhan.model.Rules;
 import network.GstSamadhanApi;
 import network.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ActsActivity extends AppCompatActivity {
+public class RulesActivity extends AppCompatActivity {
     private RecyclerView recyclerView ;
     ShimmerFrameLayout shimmerFrameLayout;
     EditText KeywordEditText;
@@ -47,7 +42,8 @@ public class ActsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acts);
+        setContentView(R.layout.activity_rules);
+
         KeywordEditText = findViewById(R.id.KeywordEditText);
         NoInternetImage = findViewById(R.id.NoInternetImage);
         RetryButton = findViewById(R.id.RetryButton);
@@ -84,14 +80,14 @@ public class ActsActivity extends AppCompatActivity {
 
             }
         });
-       retrieveValues("");
+        retrieveValues("");
 
 
 
     }//OnCreate End
 
     private void retrieveValues(final String Keyword) {
-        if(!isConnected(ActsActivity.this)){
+        if(!isConnected(RulesActivity.this)){
             shimmerFrameLayout.setVisibility(View.GONE);
             NOaccessInternet.setVisibility(View.VISIBLE);
             RetryButton.setOnClickListener(new View.OnClickListener() {
@@ -107,22 +103,22 @@ public class ActsActivity extends AppCompatActivity {
             shimmerFrameLayout.startShimmerAnimation();
             gstSamadhanApi = RetrofitClient.getApiClient().create(GstSamadhanApi.class);
 
-            Call<List<Acts>> call = gstSamadhanApi.getActs(Keyword);
+            Call<List<Rules>> call = gstSamadhanApi.getRules(Keyword);
 
-            call.enqueue(new Callback<List<Acts>>() {
+            call.enqueue(new Callback<List<Rules>>() {
                 @Override
-                public void onResponse(Call<List<Acts>> call, Response<List<Acts>> response) {
-                    List<Acts> retrievedList = response.body();
-                    ActsAdapter actsAdapter = new ActsAdapter(getApplicationContext(),retrievedList) ;
+                public void onResponse(Call<List<Rules>> call, Response<List<Rules>> response) {
+                    List<Rules> retrievedList = response.body();
+                    RulesAdapter rulesAdapter = new RulesAdapter(getApplicationContext(),retrievedList) ;
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    recyclerView.setAdapter(actsAdapter);
+                    recyclerView.setAdapter(rulesAdapter);
                     shimmerFrameLayout.stopShimmerAnimation();
                     shimmerFrameLayout.setVisibility(View.GONE);
 
                 }
 
                 @Override
-                public void onFailure(Call<List<Acts>> call, Throwable t) {
+                public void onFailure(Call<List<Rules>> call, Throwable t) {
 
                 }
             });

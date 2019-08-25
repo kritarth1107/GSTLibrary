@@ -8,7 +8,7 @@
     tools:context=".ActsActivity">
 
     <androidx.appcompat.widget.Toolbar
-        app:title="GST Acts"
+        app:title="GST Rules"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimaryDark"
@@ -24,28 +24,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize">
-    <LinearLayout
-        android:padding="10dp"
-        android:orientation="horizontal"
-        android:background="@color/bottomnavColor"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-        <EditText
-            android:id="@+id/KeywordEditText"
-            android:textSize="13sp"
-            android:paddingLeft="10dp"
-            android:background="@android:color/transparent"
-            android:hint="Search by Keyword"
-            android:layout_weight="0.9"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-        <ImageView
-            android:padding="5dp"
-            android:src="@drawable/ic_filter"
-            android:layout_weight="0.1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:background="@color/bottomnavColor"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <EditText
+                android:id="@+id/KeywordEditText"
+                android:textSize="13sp"
+                android:paddingLeft="10dp"
+                android:background="@android:color/transparent"
+                android:hint="Search by Keyword"
+                android:layout_weight="0.9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:padding="5dp"
+                android:src="@drawable/ic_filter"
+                android:layout_weight="0.1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
         <com.facebook.shimmer.ShimmerFrameLayout
             android:padding="10dp"
             android:id="@+id/shimmer_view_container"
@@ -69,13 +69,13 @@
 
             </LinearLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/ActsRecyclerView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="?attr/actionBarSize">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ActsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize">
 
-</androidx.recyclerview.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
         >
         <LinearLayout
@@ -125,7 +125,7 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-       <!-- <include layout="@layout/bottom_sheet" /> -->
+        <!-- <include layout="@layout/bottom_sheet" /> -->
     </RelativeLayout>
 
 </RelativeLayout>

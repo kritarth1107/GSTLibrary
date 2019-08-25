@@ -18,6 +18,9 @@ public class SessionManager {
     private static final String PREF_NAME = "LOGIN";
     private static final String LOGIN = "IS_LOGIN";
     public static final String CLIENT_ID = "CLIENT_ID";
+    public static final String CLIENT_EMAIL = "CLIENT_EMAIL";
+    public static final String CLIENT_NAME = "CLIENT_NAME";
+    public static final String CLIENT_MOBILE = "CLIENT_MOBILE";
     // public static final String ID = "ID";
 
     public SessionManager(Context context) {
@@ -26,10 +29,13 @@ public class SessionManager {
         editor = sharedPreferences.edit();
     }
 
-    public void createSession(String client_id){
+    public void createSession(String client_id,String client_name,String client_email,String client_mobile){
 
         editor.putBoolean(LOGIN, true);
         editor.putString(CLIENT_ID, client_id);
+        editor.putString(CLIENT_EMAIL, client_email);
+        editor.putString(CLIENT_NAME, client_name);
+        editor.putString(CLIENT_MOBILE, client_mobile);
         editor.apply();
 
     }
@@ -43,6 +49,9 @@ public class SessionManager {
     public HashMap<String, String> getUserDetail(){
         HashMap<String, String> user = new HashMap<>();
         user.put(CLIENT_ID, sharedPreferences.getString(CLIENT_ID, null));
+        user.put(CLIENT_NAME, sharedPreferences.getString(CLIENT_NAME, null));
+        user.put(CLIENT_EMAIL, sharedPreferences.getString(CLIENT_EMAIL, null));
+        user.put(CLIENT_MOBILE, sharedPreferences.getString(CLIENT_MOBILE, null));
         return user;
     }
 

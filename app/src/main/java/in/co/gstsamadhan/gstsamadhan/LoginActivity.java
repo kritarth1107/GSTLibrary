@@ -98,7 +98,10 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(success.equals("1")){
                         String client_id = jsonObject.getString("id").trim();
-                        sessionManager.createSession(client_id);
+                        String client_name = jsonObject.getString("fname").trim();
+                        String client_email = jsonObject.getString("email").trim();
+                        String client_mobile = jsonObject.getString("mobile").trim();
+                        sessionManager.createSession(client_id,client_name,client_email,client_mobile);
                         Intent i = new Intent(LoginActivity.this,MainActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);

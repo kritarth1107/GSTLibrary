@@ -17,31 +17,81 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome !"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
             android:textSize="20sp"/>
-<androidx.cardview.widget.CardView
-    android:id="@+id/LoginRegButton"
-    android:clickable="true"
-    android:foreground="?android:selectableItemBackground"
-    app:cardCornerRadius="5dp"
-    app:cardBackgroundColor="@color/colorPrimary"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:padding="10dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="10sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login/Register"
-            />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/default_profile_image"/>
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/UserDetLY"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/UserNameTV"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Name"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:textSize="13sp"/>
+                <TextView
+                    android:id="@+id/UserEmailTV"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Email"
+                    android:textColor="@android:color/black"
+                    android:textSize="10sp"/>
+                <TextView
+                    android:id="@+id/UserMobileTV"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Mobile"
+                    android:textColor="@android:color/black"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LoginRegButton"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:padding="10dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="10sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login/Register"
+                        />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
