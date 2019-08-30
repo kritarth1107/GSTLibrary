@@ -87,6 +87,16 @@ public class HomeFragment extends Fragment {
                             Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
 
                     }
+                    else if(finalI==2)
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
 
 
                 }

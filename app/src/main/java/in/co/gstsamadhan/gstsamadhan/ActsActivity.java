@@ -14,9 +14,12 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -41,17 +44,25 @@ public class ActsActivity extends AppCompatActivity {
     ShimmerFrameLayout shimmerFrameLayout;
     EditText KeywordEditText;
     private GstSamadhanApi gstSamadhanApi;
-    ImageView NoInternetImage;
+    ImageView NoInternetImage,filter;
     LinearLayout NOaccessInternet;
-    CardView RetryButton;
+    CardView RetryButton,ApplyButton;
+    FrameLayout design_bottom_sheet;
+    Spinner acts_array;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acts);
+        design_bottom_sheet = findViewById(R.id.design_bottom_sheet);
+        final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(design_bottom_sheet);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        filter = findViewById(R.id.filter);
+        acts_array = findViewById(R.id.acts_array);
         KeywordEditText = findViewById(R.id.KeywordEditText);
         NoInternetImage = findViewById(R.id.NoInternetImage);
         RetryButton = findViewById(R.id.RetryButton);
         NOaccessInternet = findViewById(R.id.NOaccessInternet);
+        ApplyButton = findViewById(R.id.ApplyButton);
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -62,9 +73,25 @@ public class ActsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //spinner
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.acts_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        acts_array.setAdapter(adapter);
         //shimmer
         shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
-
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+        ApplyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
 
         //recyclerView
         recyclerView = findViewById(R.id.ActsRecyclerView);
@@ -76,13 +103,14 @@ public class ActsActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                retrieveValues(charSequence.toString())/*(charSequence.toString())*/;
+                //retrieveValues(charSequence.toString())/*(charSequence.toString())*/;
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                retrieveValues(editable.toString())/*(charSequence.toString())*/;
             }
+
         });
        retrieveValues("");
 

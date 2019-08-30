@@ -26,37 +26,27 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import java.util.List;
 
 import in.co.gstsamadhan.gstsamadhan.Adapter.ActsAdapter;
-import in.co.gstsamadhan.gstsamadhan.Adapter.RulesAdapter;
+import in.co.gstsamadhan.gstsamadhan.Adapter.NewsAdapter;
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
-import in.co.gstsamadhan.gstsamadhan.model.Rules;
+import in.co.gstsamadhan.gstsamadhan.model.News;
 import network.GstSamadhanApi;
 import network.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RulesActivity extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity {
     private RecyclerView recyclerView ;
     ShimmerFrameLayout shimmerFrameLayout;
-    EditText KeywordEditText;
     private GstSamadhanApi gstSamadhanApi;
     ImageView NoInternetImage;
     LinearLayout NOaccessInternet;
-    CardView RetryButton,ApplyButton;
-    FrameLayout design_bottom_sheet;
-    ImageView filter;
-    Spinner rules_array;
+    CardView RetryButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rules);
-        design_bottom_sheet = findViewById(R.id.design_bottom_sheet);
-        final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(design_bottom_sheet);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        filter = findViewById(R.id.filter_rules);
-        rules_array = findViewById(R.id.acts_array);
-        ApplyButton = findViewById(R.id.ApplyButton);
-        KeywordEditText = findViewById(R.id.KeywordEditText);
+        setContentView(R.layout.activity_news);
+
         NoInternetImage = findViewById(R.id.NoInternetImage);
         RetryButton = findViewById(R.id.RetryButton);
         NOaccessInternet = findViewById(R.id.NOaccessInternet);
@@ -70,44 +60,15 @@ public class RulesActivity extends AppCompatActivity {
                 finish();
             }
         });
-        filter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
-        });
-        ApplyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            }
-        });
-        //spinner
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.rules_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        rules_array.setAdapter(adapter);
+
+
         //shimmer
         shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
 
-
         //recyclerView
         recyclerView = findViewById(R.id.ActsRecyclerView);
-        KeywordEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                retrieveValues(charSequence.toString())/*(charSequence.toString())*/;
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
         retrieveValues("");
 
 
@@ -115,7 +76,7 @@ public class RulesActivity extends AppCompatActivity {
     }//OnCreate End
 
     private void retrieveValues(final String Keyword) {
-        if(!isConnected(RulesActivity.this)){
+        if(!isConnected(NewsActivity.this)){
             shimmerFrameLayout.setVisibility(View.GONE);
             NOaccessInternet.setVisibility(View.VISIBLE);
             RetryButton.setOnClickListener(new View.OnClickListener() {
@@ -131,22 +92,22 @@ public class RulesActivity extends AppCompatActivity {
             shimmerFrameLayout.startShimmerAnimation();
             gstSamadhanApi = RetrofitClient.getApiClient().create(GstSamadhanApi.class);
 
-            Call<List<Rules>> call = gstSamadhanApi.getRules(Keyword);
+            Call<List<News>> call = gstSamadhanApi.getNews(Keyword);
 
-            call.enqueue(new Callback<List<Rules>>() {
+            call.enqueue(new Callback<List<News>>() {
                 @Override
-                public void onResponse(Call<List<Rules>> call, Response<List<Rules>> response) {
-                    List<Rules> retrievedList = response.body();
-                    RulesAdapter rulesAdapter = new RulesAdapter(getApplicationContext(),retrievedList) ;
+                public void onResponse(Call<List<News>> call, Response<List<News>> response) {
+                    List<News> retrievedList = response.body();
+                    NewsAdapter newsAdapter = new NewsAdapter(getApplicationContext(),retrievedList) ;
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    recyclerView.setAdapter(rulesAdapter);
+                    recyclerView.setAdapter(newsAdapter);
                     shimmerFrameLayout.stopShimmerAnimation();
                     shimmerFrameLayout.setVisibility(View.GONE);
 
                 }
 
                 @Override
-                public void onFailure(Call<List<Rules>> call, Throwable t) {
+                public void onFailure(Call<List<News>> call, Throwable t) {
 
                 }
             });

@@ -22,11 +22,13 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,6 +40,7 @@ public class ActsSection extends AppCompatActivity {
     TextView Chapter,Section,Title,Content;
     Bitmap bitmap;
     LinearLayout SectionLL;
+    FrameLayout design_bottom_sheet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

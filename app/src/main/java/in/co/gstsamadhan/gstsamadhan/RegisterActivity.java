@@ -2,6 +2,7 @@ package in.co.gstsamadhan.gstsamadhan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -81,5 +82,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public void Register(final String Name,final String Email, final String Password, final String Mobile){
         Snackbar.make(RegisterActivity,"Here We Proceed to Registration Procedure", Snackbar.LENGTH_LONG).show();
+        startActivity(new Intent(this,Register_Step_2.class));
     }
 }

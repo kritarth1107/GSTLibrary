@@ -31,6 +31,8 @@ public class RulesAdapter extends RecyclerView.Adapter<RulesAdapter.MyViewHolder
         this.mData = mData;
 
 
+
+
     }
 
     @Override

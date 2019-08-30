@@ -3,6 +3,7 @@ package network;
 import java.util.List;
 
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
+import in.co.gstsamadhan.gstsamadhan.model.News;
 import in.co.gstsamadhan.gstsamadhan.model.Rules;
 import in.co.gstsamadhan.gstsamadhan.model.User;
 import retrofit2.Call;
@@ -23,6 +24,10 @@ public interface GstSamadhanApi {
     );
     @GET("rules")
     Call<List<Rules>> getRules(
+            @Query("key") String keyword
+    );
+    @GET("news")
+    Call<List<News>> getNews(
             @Query("key") String keyword
     );
     @GET("login")

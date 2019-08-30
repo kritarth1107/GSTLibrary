@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context=".HomeFragment">
 <RelativeLayout
     android:layout_width="match_parent"
@@ -264,7 +265,7 @@
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_delivery_van"/>
+                        android:src="@drawable/ic_court"/>
 
                 </RelativeLayout>
                 <TextView
@@ -272,7 +273,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    android:text="E-Way Bill"
+                    android:text="High Court"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -298,7 +299,7 @@
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_calculator"/>
+                        android:src="@drawable/ic_report"/>
 
                 </RelativeLayout>
                 <TextView
@@ -306,7 +307,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    android:text="GST Rates"
+                    android:text="GST Forms"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -344,244 +345,11 @@
 
                     >
                     <ImageView
+                        android:layout_margin="15dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="GST Acts"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:background="@android:color/transparent"
-                >
-
-                <RelativeLayout
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/circlebg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="GST Rules"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:background="@android:color/transparent"
-                >
-
-                <RelativeLayout
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/circlebg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="Notifications"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:background="@android:color/transparent"
-                >
-
-                <RelativeLayout
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/circlebg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textAlignment="center"
-                    android:textSize="10sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="Circular/Order"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:background="@android:color/transparent"
-                >
-
-                <RelativeLayout
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/circlebg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:textAlignment="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="Advanced Ruling"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:background="@android:color/transparent"
-                >
-
-                <RelativeLayout
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/circlebg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="Press Release"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:background="@android:color/transparent"
-                >
-
-                <RelativeLayout
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/circlebg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="E-Way Bill"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"/>
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_columnWeight="1"
-                android:background="@android:color/transparent"
-                >
-
-                <RelativeLayout
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/circlebg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home"/>
+                        android:src="@drawable/ic_calculator"/>
 
                 </RelativeLayout>
                 <TextView
@@ -590,6 +358,247 @@
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
                     android:text="GST Rates"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                >
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circlebg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="15dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_calendar"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="GST Calender"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                >
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circlebg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="15dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_delivery_van"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="E-Way Bill Noti."
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                >
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circlebg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="15dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_delivery_van"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="E-Way Bill FAQ"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                >
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circlebg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="15dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_newspaper_white"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="News/Articles"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                >
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circlebg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="15dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_youtube"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="Video Library"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                >
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circlebg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="15dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_domain"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="State GST Website"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                >
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circlebg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="15dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_star_expert"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="GST Experts"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -673,7 +682,101 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
+                    android:text="Verified GST Experts"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@drawable/bgborder"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:layout_height="70dp">
+                <RelativeLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_ebook"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Book Store"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@drawable/bgborder"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:layout_height="70dp">
+                <RelativeLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_computer"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="E-Learning"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@drawable/bgborder"
+                android:layout_width="0dp"
+                android:layout_columnWeight="1"
+                android:layout_height="70dp">
+                <RelativeLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+
+
+                    >
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_quiz"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:textSize="10sp"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Free GST Quiz"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"/>
@@ -704,7 +807,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
+                    android:text="Business Opportunity"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"/>
@@ -735,7 +838,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
+                    android:text="Upcoming Events"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"/>
@@ -766,7 +869,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
+                    android:text="Student Corner"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"/>
@@ -797,100 +900,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="5dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:background="@drawable/bgborder"
-                android:layout_width="0dp"
-                android:layout_columnWeight="1"
-                android:layout_height="70dp">
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:textAlignment="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="5dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:background="@drawable/bgborder"
-                android:layout_width="0dp"
-                android:layout_columnWeight="1"
-                android:layout_height="70dp">
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:textAlignment="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="5dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:background="@drawable/bgborder"
-                android:layout_width="0dp"
-                android:layout_columnWeight="1"
-                android:layout_height="70dp">
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:orientation="vertical"
-
-
-                    >
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
-
-                </RelativeLayout>
-                <TextView
-                    android:textSize="10sp"
-                    android:textAlignment="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="Advanced Ruling"
+                    android:text="More"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"/>
