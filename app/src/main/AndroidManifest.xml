@@ -15,7 +15,9 @@
         android:roundIcon="@drawable/ic_gst_samadhan_app_favicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".GstNotifications"></activity>
+        <activity android:name=".NewsSection" />
+        <activity android:name=".NewsActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RulesSection" />
         <activity android:name=".RulesActivity" />

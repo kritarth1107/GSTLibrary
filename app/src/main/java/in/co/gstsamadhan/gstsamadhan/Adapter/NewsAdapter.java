@@ -19,6 +19,7 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.List;
 
 import in.co.gstsamadhan.gstsamadhan.ActsSection;
+import in.co.gstsamadhan.gstsamadhan.NewsSection;
 import in.co.gstsamadhan.gstsamadhan.R;
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
 import in.co.gstsamadhan.gstsamadhan.model.News;
@@ -48,7 +49,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
 
-                /*Intent i = new Intent(mContext, ActsSection.class);
+                Intent i = new Intent(mContext, NewsSection.class);
                 i.putExtra("id",mData.get(viewHolder.getAdapterPosition()).getId());
                 i.putExtra("hindi_title",mData.get(viewHolder.getAdapterPosition()).getHindiTitle());
                 i.putExtra("title",mData.get(viewHolder.getAdapterPosition()).getTitle());
@@ -63,7 +64,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
                 i.putExtra("updated_at",mData.get(viewHolder.getAdapterPosition()).getUpdatedAt());
                 i.putExtra("status",mData.get(viewHolder.getAdapterPosition()).getStatus());
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(i);*/
+                mContext.startActivity(i);
 
             }
         });

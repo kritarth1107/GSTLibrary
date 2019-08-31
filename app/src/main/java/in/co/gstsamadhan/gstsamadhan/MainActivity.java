@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 break;
                             case R.id.news_bottom_navigation:
                                 startActivity(new Intent(MainActivity.this,NewsActivity.class));
-
+                                overridePendingTransition(R.anim.fade_up_down,R.anim.fade_down_up);
                                 break;
                             case R.id.scan_bottom_navigation:
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
 import in.co.gstsamadhan.gstsamadhan.model.News;
+import in.co.gstsamadhan.gstsamadhan.model.Notification;
 import in.co.gstsamadhan.gstsamadhan.model.Rules;
 import in.co.gstsamadhan.gstsamadhan.model.User;
 import retrofit2.Call;
@@ -28,6 +29,10 @@ public interface GstSamadhanApi {
     );
     @GET("news")
     Call<List<News>> getNews(
+                    @Query("key") String keyword
+            );
+    @GET("notification")
+    Call<List<Notification>> getGstNotifications(
             @Query("key") String keyword
     );
     @GET("login")

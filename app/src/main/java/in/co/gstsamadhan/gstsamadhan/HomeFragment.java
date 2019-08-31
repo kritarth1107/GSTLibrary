@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
 
         //TODO Calling GridView for Onclick Function
         setSingleEvent(G1);
+        setSingleEvent2(G2);
 
         return view;
     }
@@ -91,10 +92,35 @@ public class HomeFragment extends Fragment {
                     {
                         if(sessionManager.isLoggin())
                         {
-
+                            Intent i = new Intent(getContext(),GstNotifications.class);
+                            startActivity(i);
                         }
                         else
                             Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                }
+            });
+
+
+
+
+        }
+    }
+    //GridLayout child RelativeLayout OnClick Function
+    private void setSingleEvent2(GridLayout mainGrid) {
+        for (int i=0;i<mainGrid.getChildCount();i++)
+        {
+            RelativeLayout rv = (RelativeLayout) mainGrid.getChildAt(i);
+            final int finalI = i;
+            rv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(finalI==4)
+                    {
+                        startActivity(new Intent(getContext(),NewsActivity.class));
 
                     }
 
