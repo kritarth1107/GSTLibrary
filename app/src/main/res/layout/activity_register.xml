@@ -4,28 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".Login.LoginActivity"
     android:background="@android:color/white"
     android:padding="15dp"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:id="@+id/RegisterActivity">
+    <ImageView
+        android:id="@+id/Himage"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ogo_primary_horizontal" />
     <LinearLayout
+        android:layout_below="@id/Himage"
         android:padding="15dp"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:src="@drawable/ogo_primary_horizontal"/>
+
         <TextView
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimary"
             android:textAlignment="center"
             android:text="Get started"
             android:textSize="23sp"/>
@@ -92,38 +96,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <LinearLayout
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                android:text="By continuing you agree to GST Samadhan's"/>
-            <TextView
-                android:id="@+id/Reg_TermOFService"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                android:text=" terms of service"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                android:text=" and "/>
-            <TextView
-                android:id="@+id/Reg_PrivacyNotice"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                android:text="privacy Notice"/>
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="By continuing you agree to GST Samadhan's"
+                    android:textAlignment="center"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/Reg_TermOFService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" terms of service"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" &amp; "
+                    android:textAlignment="center"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/Reg_PrivacyNotice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="privacy Notice"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
         </LinearLayout>
         <Button
             android:id="@+id/RegButton"

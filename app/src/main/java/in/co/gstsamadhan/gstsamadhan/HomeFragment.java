@@ -18,12 +18,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import in.co.gstsamadhan.gstsamadhan.Session.SessionManager;
 
 
 public class HomeFragment extends Fragment {
     SessionManager sessionManager;
-   
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -70,8 +72,19 @@ public class HomeFragment extends Fragment {
                     {
                         if(sessionManager.isLoggin())
                         {
-                            Intent i = new Intent(getContext(),ActsActivity.class);
-                            startActivity(i);
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),ActsActivity.class);
+                                startActivity(i);
+                            }
+
                         }
                     else
                         Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
@@ -81,19 +94,104 @@ public class HomeFragment extends Fragment {
                     {
                         if(sessionManager.isLoggin())
                         {
-                            Intent i = new Intent(getContext(),RulesActivity.class);
-                            startActivity(i);
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),RulesActivity.class);
+                                startActivity(i);
+                            }
                         }
                         else
                             Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
 
                     }
                     else if(finalI==2)
+
                     {
                         if(sessionManager.isLoggin())
                         {
-                            Intent i = new Intent(getContext(),GstNotifications.class);
-                            startActivity(i);
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),GstNotifications.class);
+                                startActivity(i);
+                            }
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else if(finalI==3)
+
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),OrdersActivity.class);
+                                startActivity(i);
+                            }
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else if(finalI==5)
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),PressReleaseActivity.class);
+                                startActivity(i);
+                            }
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else if(finalI==7)
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),GstForms.class);
+                                startActivity(i);
+                            }
                         }
                         else
                             Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
@@ -123,6 +221,11 @@ public class HomeFragment extends Fragment {
                         startActivity(new Intent(getContext(),NewsActivity.class));
 
                     }
+                    if(finalI==5)
+                    {
+                        startActivity(new Intent(getContext(),VideoLibrary.class));
+
+                    }
 
 
                 }
@@ -134,5 +237,9 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
+
     
+
+
 }

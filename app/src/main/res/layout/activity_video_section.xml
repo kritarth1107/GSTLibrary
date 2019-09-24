@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VideoSection">
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/youtube_player">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/videoDateSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="02-Feb-2019"/>
+
+        <TextView
+            android:id="@+id/videoTitleSection"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="GST Invoice बनाते समय आपको किन-किन बातों का ध्यान रखना चाहिए"/>
+
+        <TextView
+            android:id="@+id/videoDescriptionSection"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="GST Invoice बनाते समय आपको किन-किन बातों का ध्यान रखना चाहिए"/>
+
+
+
+    </LinearLayout>
+</RelativeLayout>
+</RelativeLayout>

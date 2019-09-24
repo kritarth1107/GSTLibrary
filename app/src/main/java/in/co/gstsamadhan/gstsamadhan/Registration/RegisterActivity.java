@@ -1,4 +1,4 @@
-package in.co.gstsamadhan.gstsamadhan;
+package in.co.gstsamadhan.gstsamadhan.Registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import in.co.gstsamadhan.gstsamadhan.R;
 
 public class RegisterActivity extends AppCompatActivity {
     RelativeLayout RegisterActivity;
@@ -38,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                overridePendingTransition(0,0);
             }
         });
         RegButton.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +84,20 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public void Register(final String Name,final String Email, final String Password, final String Mobile){
         Snackbar.make(RegisterActivity,"Here We Proceed to Registration Procedure", Snackbar.LENGTH_LONG).show();
-        startActivity(new Intent(this,Register_Step_2.class));
+        Intent intent = new Intent(RegisterActivity.this, Register_Step_2.class);
+        intent.putExtra("email",Email);
+        intent.putExtra("password",Password);
+        intent.putExtra("mobile",Mobile);
+        intent.putExtra("name",Name);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+        overridePendingTransition(0,0);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(0,0);
     }
 }

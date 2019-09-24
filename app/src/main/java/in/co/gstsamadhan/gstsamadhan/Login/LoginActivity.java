@@ -1,4 +1,4 @@
-package in.co.gstsamadhan.gstsamadhan;
+package in.co.gstsamadhan.gstsamadhan.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +28,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import in.co.gstsamadhan.gstsamadhan.MainActivity;
+import in.co.gstsamadhan.gstsamadhan.R;
+import in.co.gstsamadhan.gstsamadhan.Registration.RegisterActivity;
 import in.co.gstsamadhan.gstsamadhan.Session.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
@@ -36,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     Button LoginButton;
     TextView LoginForgotPassword,Login_TermsOfService,Login_PrivacyNotice,LoginWithOTP;
     LinearLayout Login_CreateAccount;
-    ProgressBar progressBar;
+    MKLoader progressBar;
     SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +62,10 @@ public class LoginActivity extends AppCompatActivity {
         Login_CreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Reg = new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent Reg = new Intent(LoginActivity.this, RegisterActivity.class);
+                Reg.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(Reg);
-                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -84,6 +88,15 @@ public class LoginActivity extends AppCompatActivity {
                     }
             }
         });
+        LoginWithOTP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this,LoginWithOTP.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(i);
+                overridePendingTransition(0,0);
+            }
+        });
 
     }
     public void Login(final String Email,final String Password){
@@ -98,11 +111,12 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(success.equals("1")){
                         String client_id = jsonObject.getString("id").trim();
+                        String client_plan = jsonObject.getString("plan_id").trim();
                         String client_name = jsonObject.getString("fname").trim();
                         String client_email = jsonObject.getString("email").trim();
                         String client_mobile = jsonObject.getString("mobile").trim();
-                        sessionManager.createSession(client_id,client_name,client_email,client_mobile);
-                        Intent i = new Intent(LoginActivity.this,MainActivity.class);
+                        sessionManager.createSession(client_id,client_name,client_email,client_mobile,client_plan);
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);

@@ -11,8 +11,10 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -49,6 +51,8 @@ public class ActsActivity extends AppCompatActivity {
     CardView RetryButton,ApplyButton;
     FrameLayout design_bottom_sheet;
     Spinner acts_array;
+    View bg;
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,7 @@ public class ActsActivity extends AppCompatActivity {
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(design_bottom_sheet);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         filter = findViewById(R.id.filter);
+        bg = findViewById(R.id.bg);
         acts_array = findViewById(R.id.acts_array);
         KeywordEditText = findViewById(R.id.KeywordEditText);
         NoInternetImage = findViewById(R.id.NoInternetImage);
@@ -64,13 +69,35 @@ public class ActsActivity extends AppCompatActivity {
         NOaccessInternet = findViewById(R.id.NOaccessInternet);
         ApplyButton = findViewById(R.id.ApplyButton);
         //Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 finish();
+            }
+        });
+        bg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                bg.setVisibility(View.GONE);
+                toolbar.setEnabled(true);
+            }
+        });
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED)
+                    bg.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                Log.d(TAG, "onSlide: slideOffset" + slideOffset + "");
+                bg.setVisibility(View.VISIBLE);
+                bg.setAlpha(slideOffset);
             }
         });
 
@@ -84,14 +111,19 @@ public class ActsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                toolbar.setEnabled(false);
+                bg.setVisibility(View.VISIBLE);
             }
         });
         ApplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                bg.setVisibility(View.GONE);
+                toolbar.setEnabled(true);
             }
         });
+
 
         //recyclerView
         recyclerView = findViewById(R.id.ActsRecyclerView);

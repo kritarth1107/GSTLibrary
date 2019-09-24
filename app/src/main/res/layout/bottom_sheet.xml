@@ -9,9 +9,9 @@
     <FrameLayout
         android:id="@+id/design_bottom_sheet"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="200dp"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="280dp"
+        app:behavior_peekHeight="200dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <LinearLayout
@@ -59,7 +59,7 @@
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Apply Filters"/>
+                            android:text="Login"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>

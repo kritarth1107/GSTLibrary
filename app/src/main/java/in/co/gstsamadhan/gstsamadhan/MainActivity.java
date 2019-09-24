@@ -5,13 +5,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,13 +24,13 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashMap;
 
+import in.co.gstsamadhan.gstsamadhan.Login.LoginActivity;
 import in.co.gstsamadhan.gstsamadhan.Session.SessionManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -46,7 +50,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sessionManager = new SessionManager(this);   //SessionManager Declare
-
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS}, 101);
+        }
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         searchbar = findViewById(R.id.searchbar);
@@ -71,11 +77,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                 break;
                             case R.id.news_bottom_navigation:
-                                startActivity(new Intent(MainActivity.this,NewsActivity.class));
-                                overridePendingTransition(R.anim.fade_up_down,R.anim.fade_down_up);
+                                Intent intent =new  Intent(MainActivity.this,NewsActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                startActivity(intent);
+                                overridePendingTransition(0,0);
+
                                 break;
                             case R.id.scan_bottom_navigation:
-
+                                startActivity(new Intent(MainActivity.this,ScanActivity.class));
+                                overridePendingTransition(R.anim.fade_up_down,R.anim.fade_down_up);
                                 break;
                             case R.id.wallet_bottom_navigation:
                                 if (frag.equals("Wallet")){
@@ -95,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 });
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -134,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LoginReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
             }
         });
@@ -143,9 +154,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out);
+        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out);
         fragmentTransaction.replace(R.id.FrameLayoutMain, fragment);
-        fragmentTransaction.commit();
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
 
@@ -154,6 +165,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()) {
             case R.id.nav_logout:
                 sessionManager.logout();
+                break;
+
+            case R.id.nav_profile:
+                startActivity(new Intent(MainActivity.this,ProfileActivity.class));
                 break;
 
         }
@@ -168,8 +183,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
         else {
-
+            if(frag.equals("Home")){
                 super.onBackPressed();
+            }
+            else {
+                frag="Home";
+                bottomNavigationView.setSelectedItemId(R.id.home_bottom_navigation);
+                loadFragment(new HomeFragment());
+            }
+
+
 
 
         }

@@ -4,142 +4,164 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".Login.LoginActivity"
     android:background="@android:color/white"
     android:padding="15dp"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:id="@+id/LoginActivity">
-<LinearLayout
-    android:layout_centerInParent="true"
-    android:padding="15dp"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
     <ImageView
-        android:layout_margin="10dp"
+        android:id="@+id/Himage"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:src="@drawable/ogo_primary_horizontal"/>
-    <TextView
-        android:textStyle="bold"
-        android:padding="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:textAlignment="center"
-        android:text="Welcome back!"
-        android:textSize="23sp"/>
-<EditText
-    android:id="@+id/LoginEmail"
-    android:textSize="13sp"
-    android:inputType="textEmailAddress"
-    android:layout_margin="10dp"
-    android:padding="13dp"
-    android:hint="Email ID"
-    android:background="@drawable/bgborder"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/LoginPassword"
-        android:textSize="13sp"
-        android:inputType="textPassword"
-        android:layout_margin="10dp"
-        android:padding="13dp"
-        android:hint="Password"
-        android:background="@drawable/bgborder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/LoginForgotPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textStyle="bold"
-        android:paddingLeft="10dp"
-        android:textColor="@color/colorPrimaryDark"/>
-    <ProgressBar
-        android:layout_margin="10dp"
-        android:id="@+id/LoginProgressbar"
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
-    <Button
-        android:id="@+id/LoginButton"
-        android:layout_margin="10dp"
-        android:clickable="true"
-        android:foreground="?android:selectableItemBackground"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold"
-        android:text="login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/LoginWithOTP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Login with OTP"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold"
-        android:layout_margin="10dp"/>
-
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ogo_primary_horizontal" />
     <LinearLayout
-        android:id="@+id/Login_CreateAccount"
-        android:clickable="true"
-        android:foreground="?android:selectableItemBackground"
-        android:padding="10dp"
-        android:background="@color/background"
-        android:layout_width="wrap_content"
+        android:layout_below="@id/Himage"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Don't have an account?"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Create Account"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"/>
-    </LinearLayout>
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp">
 
-</LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Welcome back!"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/LoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bgborder"
+            android:hint="Email ID"
+            android:inputType="textEmailAddress"
+            android:padding="13dp"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/LoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bgborder"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="13dp"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/LoginForgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Forgot Password?"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <com.tuyenmonkey.mkloader.MKLoader
+            android:id="@+id/LoginProgressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mk_color="@color/colorAccent"
+            app:mk_type="Whirlpool" />
+
+        <Button
+            android:id="@+id/LoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/colorAccent"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground"
+            android:text="login"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/LoginWithOTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Login with OTP"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/Login_CreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account?"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Account"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="10sp"
-            android:text="By continuing you agree to GST Samadhan's"/>
-        <TextView
-            android:id="@+id/Login_TermsOfService"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="10sp"
-            android:text=" terms of service"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="10sp"
-            android:text=" and "/>
-        <TextView
-            android:id="@+id/Login_PrivacyNotice"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="10sp"
-            android:text="privacy Notice"/>
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By continuing you agree to GST Samadhan's"
+                android:textAlignment="center"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/Login_TermsOfService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" terms of service"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" &amp; "
+                android:textAlignment="center"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/Login_PrivacyNotice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="privacy Notice"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="9sp" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

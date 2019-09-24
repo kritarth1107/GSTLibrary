@@ -1,5 +1,6 @@
 package in.co.gstsamadhan.gstsamadhan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -12,6 +13,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -46,6 +48,8 @@ public class RulesActivity extends AppCompatActivity {
     FrameLayout design_bottom_sheet;
     ImageView filter;
     Spinner rules_array;
+    View bg;
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +65,7 @@ public class RulesActivity extends AppCompatActivity {
         RetryButton = findViewById(R.id.RetryButton);
         NOaccessInternet = findViewById(R.id.NOaccessInternet);
         //Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,16 +74,43 @@ public class RulesActivity extends AppCompatActivity {
                 finish();
             }
         });
+        bg = findViewById(R.id.bg);
+        bg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                bg.setVisibility(View.GONE);
+                toolbar.setEnabled(true);
+            }
+        });
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED)
+                    bg.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                Log.d(TAG, "onSlide: slideOffset" + slideOffset + "");
+                bg.setVisibility(View.VISIBLE);
+                bg.setAlpha(slideOffset);
+            }
+        });
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                toolbar.setEnabled(false);
+                bg.setVisibility(View.VISIBLE);
             }
         });
         ApplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                bg.setVisibility(View.GONE);
+                toolbar.setEnabled(true);
             }
         });
         //spinner

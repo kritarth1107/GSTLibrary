@@ -18,9 +18,84 @@
         <item>UTGST Rules</item>
         <item>GST Settlement Rules</item>
     </string-array>
+    <string-array name="notification_array">
+        <item>Central Tax</item>
+        <item>Central Tax (Rates)</item>
+        <item>Integrated Tax</item>
+        <item>Integrated Tax (Rates)</item>
+        <item>Union Tarritory Tax</item>
+        <item>Union Tarritory Tax (Rates)</item>
+        <item>Compensation Cess</item>
+        <item>Compensation Cess (Rates)</item>
+    </string-array>
+
     <string-array name="year_array">
         <item>2017</item>
         <item>2018</item>
         <item>2019</item>
     </string-array>
+
+    <string-array name="purchase_duration">
+        <item>1 Year</item>
+        <item>2 Years</item>
+        <item>3 Years</item>
+        <item>4 Years</item>
+        <item>5 Years</item>
+    </string-array>
+
+    <string-array name="profession">
+        <item>-- Select your Profession --</item>
+        <item>Student</item>
+        <item>CA</item>
+        <item>CS</item>
+        <item>Advocate</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="state">
+        <item>-- Select your State --</item>
+        <item>Andaman and Nicobar Islands</item>
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chandigarh</item>
+        <item>Chhattisgarh</item>
+        <item>Dadra and Nagar Haveli</item>
+        <item>Daman and Diu</item>
+        <item>Delhi</item>
+        <item>Goa</item>
+        <item>Gujrat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu &amp; Kashmir</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kenmore</item>
+        <item>Kerala</item>
+        <item>Lakshadweep</item>
+        <item>Madhya Pradesh</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Narora</item>
+        <item>Natwar</item>
+        <item>Odisha</item>
+        <item>Paschim Medinipur</item>
+        <item>Pondicherry</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>Vaishali</item>
+        <item>West Bengal</item>
+
+
+    </string-array>
+
 </resources>

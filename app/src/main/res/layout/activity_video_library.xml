@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/tools"
+    tools:context=".VideoLibrary">
+
+    <androidx.appcompat.widget.Toolbar
+        app:title="Video Library"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bottomnavColor"
+        android:id="@+id/toolbar"
+        app:titleTextColor="@color/colorPrimaryDark"
+        android:elevation="0dp"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+
+
+   />
+    <RelativeLayout
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            shimmer:duration="800">
+            <!-- Adding 7 rows of placeholders -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <include layout="@layout/shimmervideo" />
+                <include layout="@layout/shimmervideo" />
+                <include layout="@layout/shimmervideo" />
+
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+        <LinearLayout
+            android:id="@+id/NOaccessInternet"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/NoInternetImage"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_undraw_server_down_s4lk"/>
+            <TextView
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_internet"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/RetryButton"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:padding="10dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Try Again"
+                        />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/VideosRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:background="@android:color/white">
     <androidx.appcompat.widget.Toolbar
         app:title="Profile"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/gradbg"
         android:id="@+id/toolbar"
         app:titleTextColor="#fff"
         android:elevation="0dp"
@@ -18,5 +19,314 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
     </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/gradbg">
+
+    </LinearLayout>
+ <ImageView
+     android:elevation="5dp"
+     android:id="@+id/ImageViewProfile"
+     android:layout_marginTop="120dp"
+     android:layout_centerHorizontal="true"
+     android:layout_width="150dp"
+     android:layout_height="150dp"
+     android:src="@drawable/ic_user"/>
+<ScrollView
+
+    android:layout_below="@id/ImageViewProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:background="@drawable/circle_shadow"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.20">
+                    <ImageView
+                        android:padding="25dp"
+                        android:src="@drawable/ic_man_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Name"/>
+                    <TextView
+                        android:id="@+id/ProfileName"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kritarth Agrawal"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:background="@drawable/circle_shadow"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.20">
+                    <ImageView
+                        android:padding="25dp"
+                        android:src="@drawable/ic_call_answer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Number"/>
+                    <TextView
+                        android:id="@+id/ProfileMobile"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+91 7694829888"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:background="@drawable/circle_shadow"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.20">
+                    <ImageView
+                        android:padding="25dp"
+                        android:src="@drawable/ic_mail_black_envelope_symbol"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Email"/>
+                    <TextView
+                        android:id="@+id/ProfileEmail"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="singhalkritarth@gmail.com"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:background="@drawable/circle_shadow"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.20">
+                    <ImageView
+                        android:padding="25dp"
+                        android:src="@drawable/ic_businessman"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Profession"/>
+                    <TextView
+                        android:id="@+id/ProfileProfession"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Student"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:background="@drawable/circle_shadow"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.20">
+                    <ImageView
+                        android:padding="25dp"
+                        android:src="@drawable/ic_maps_and_flags"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your City"/>
+
+                    <TextView
+                        android:id="@+id/ProfileCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Raipur"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:background="@drawable/circle_shadow"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.20">
+                    <ImageView
+                        android:padding="25dp"
+                        android:src="@drawable/ic_credit_cards_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Purchased Plan"/>
+
+                    <TextView
+                        android:id="@+id/ProfilePlan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No Plan Purchased"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground"
+                android:background="@drawable/button_dark"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:text="Update Profile"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LogoutLayout"
+                android:clickable="true"
+                android:foreground="?android:selectableItemBackground"
+                android:background="@drawable/button_dark_border"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:text="Logout"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
 
 </RelativeLayout>

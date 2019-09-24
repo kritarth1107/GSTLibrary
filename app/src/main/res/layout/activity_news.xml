@@ -7,19 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ActsActivity">
 
+
     <androidx.appcompat.widget.Toolbar
         app:title="GST News &amp; Articles"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/bottomnavColor"
         android:id="@+id/toolbar"
-        app:titleTextColor="#fff"
+        app:titleTextColor="#000"
         android:elevation="0dp"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    </androidx.appcompat.widget.Toolbar>
+
+        />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -60,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <include layout="@layout/shimmer" />
                 <include layout="@layout/shimmer" />
                 <include layout="@layout/shimmer" />
                 <include layout="@layout/shimmer" />

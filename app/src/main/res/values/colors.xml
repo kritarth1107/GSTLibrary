@@ -5,5 +5,5 @@
     <color name="colorAccent">#faca64</color>
     <color name="bottomnavColor">#e9edf1</color>
     <color name="colorRed">#f62222</color>
-    <color name="background">#f1f1f1</color>
+    <color name="background">#dddddd</color>
 </resources>

@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 
 import java.util.HashMap;
 
-import in.co.gstsamadhan.gstsamadhan.LoginActivity;
 import in.co.gstsamadhan.gstsamadhan.MainActivity;
 
 public class SessionManager {
@@ -21,6 +20,7 @@ public class SessionManager {
     public static final String CLIENT_EMAIL = "CLIENT_EMAIL";
     public static final String CLIENT_NAME = "CLIENT_NAME";
     public static final String CLIENT_MOBILE = "CLIENT_MOBILE";
+    public static final String CLIENT_PLAN = "CLIENT_PLAN";
     // public static final String ID = "ID";
 
     public SessionManager(Context context) {
@@ -29,13 +29,14 @@ public class SessionManager {
         editor = sharedPreferences.edit();
     }
 
-    public void createSession(String client_id,String client_name,String client_email,String client_mobile){
+    public void createSession(String client_id,String client_name,String client_email,String client_mobile,String Client_plan){
 
         editor.putBoolean(LOGIN, true);
         editor.putString(CLIENT_ID, client_id);
         editor.putString(CLIENT_EMAIL, client_email);
         editor.putString(CLIENT_NAME, client_name);
         editor.putString(CLIENT_MOBILE, client_mobile);
+        editor.putString(CLIENT_PLAN,Client_plan);
         editor.apply();
 
     }
@@ -52,9 +53,23 @@ public class SessionManager {
         user.put(CLIENT_NAME, sharedPreferences.getString(CLIENT_NAME, null));
         user.put(CLIENT_EMAIL, sharedPreferences.getString(CLIENT_EMAIL, null));
         user.put(CLIENT_MOBILE, sharedPreferences.getString(CLIENT_MOBILE, null));
+        user.put(CLIENT_PLAN, sharedPreferences.getString(CLIENT_PLAN, null));
         return user;
     }
-
+    public void update(String client_id,String client_name,String client_email,String client_mobile,String Client_plan){
+        editor.clear();
+        editor.commit();
+        editor.putBoolean(LOGIN, true);
+        editor.putString(CLIENT_ID, client_id);
+        editor.putString(CLIENT_EMAIL, client_email);
+        editor.putString(CLIENT_NAME, client_name);
+        editor.putString(CLIENT_MOBILE, client_mobile);
+        editor.putString(CLIENT_PLAN,Client_plan);
+        editor.apply();
+        Intent i = new Intent(context, MainActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(i);
+    }
     public void logout(){
         editor.clear();
         editor.commit();
