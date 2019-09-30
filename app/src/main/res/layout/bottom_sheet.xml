@@ -9,59 +9,52 @@
     <FrameLayout
         android:id="@+id/design_bottom_sheet"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="200dp"
+        app:behavior_peekHeight="120dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            <LinearLayout
+                android:elevation="1dp"
+                android:paddingLeft="25dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:text="Filters"
+                    android:layout_weight="0.8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:padding="11dp"
+                    android:layout_weight="0.2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_keyboard_arrow_up"/>
+            </LinearLayout>
 
             <RelativeLayout
                 android:orientation="vertical"
-                android:padding="25dp"
-                android:background="@drawable/bgradius"
+                android:background="@android:color/white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:orientation="vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_centerInParent="true"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textAlignment="center"
-    android:text="Please Login To Access"/>
-
-
-                </LinearLayout>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/ApplyButton"
-                    android:layout_alignParentBottom="true"
-                    android:layout_margin="20dp"
-                    app:cardCornerRadius="5dp"
-                    app:cardBackgroundColor="@color/colorAccent"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:textColor="@android:color/black"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Login"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:text="Oopss no filter available !"/>
             </RelativeLayout>
 
 

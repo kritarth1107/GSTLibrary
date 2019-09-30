@@ -162,7 +162,7 @@ public class ActsSection extends AppCompatActivity {
 
             // write the document content
             String dir = Environment.getExternalStorageDirectory().getPath();
-            String targetPdf = dir+"/Kirtu/test.pdf";
+            String targetPdf = dir+"/GstSamadhan";
             File filePath = new File(targetPdf);
             try {
                 document.writeTo(new FileOutputStream(filePath));
@@ -171,8 +171,6 @@ public class ActsSection extends AppCompatActivity {
                 e.printStackTrace();
                 Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
             }
-
-            // close the document
             document.close();
         }
 
@@ -205,9 +203,7 @@ public class ActsSection extends AppCompatActivity {
                 }
             } else {
                 boolean_permission = true;
-
-
-            }
+}
         }
         @Override
         public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {

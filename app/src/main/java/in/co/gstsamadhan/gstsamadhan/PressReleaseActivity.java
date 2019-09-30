@@ -75,7 +75,7 @@ public class PressReleaseActivity extends AppCompatActivity {
         });
 
         //spinner
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.notification_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.press_release_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         acts_array.setAdapter(adapter);
         //shimmer

@@ -19,7 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".VideoSection"></activity>
+        <activity android:name=".PrivacyPolicy"></activity>
+        <activity android:name=".EwayBillNotificationActivity" />
+        <activity android:name=".GST_Sites" />
+        <activity android:name=".AdvanceRulingActivity" />
+        <activity android:name=".EwayBillFaq" />
+        <activity android:name=".VideoSection" />
         <activity android:name=".VideoLibrary" />
         <activity android:name=".Login.LoginWithOTP" />
         <activity android:name=".PaymentGateway.TransactionStatus" />

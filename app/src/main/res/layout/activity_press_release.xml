@@ -138,5 +138,5 @@
         android:layout_height="match_parent">
     </View>
     <include
-        layout="@layout/bottomsheet" />
+        layout="@layout/bottomsheet_pressrelease" />
 </RelativeLayout>

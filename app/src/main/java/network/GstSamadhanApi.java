@@ -4,7 +4,10 @@ import java.util.List;
 
 import in.co.gstsamadhan.gstsamadhan.PaymentGateway.checksum;
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
+import in.co.gstsamadhan.gstsamadhan.model.AdvanceRuling;
 import in.co.gstsamadhan.gstsamadhan.model.Coupon;
+import in.co.gstsamadhan.gstsamadhan.model.EwayBillFAQ;
+import in.co.gstsamadhan.gstsamadhan.model.EwayBillNotification;
 import in.co.gstsamadhan.gstsamadhan.model.News;
 import in.co.gstsamadhan.gstsamadhan.model.Notification;
 import in.co.gstsamadhan.gstsamadhan.model.Orders;
@@ -12,6 +15,7 @@ import in.co.gstsamadhan.gstsamadhan.model.PressRelease;
 import in.co.gstsamadhan.gstsamadhan.model.Purchase;
 import in.co.gstsamadhan.gstsamadhan.model.Registration;
 import in.co.gstsamadhan.gstsamadhan.model.Rules;
+import in.co.gstsamadhan.gstsamadhan.model.SgstSites;
 import in.co.gstsamadhan.gstsamadhan.model.User;
 import in.co.gstsamadhan.gstsamadhan.model.Video;
 import in.co.gstsamadhan.gstsamadhan.model.gstforms;
@@ -47,13 +51,29 @@ public interface GstSamadhanApi {
     Call<List<gstforms>> getGstForms(
             @Query("key") String keyword
     );
+    @GET("advance_ruling")
+    Call<List<AdvanceRuling>> getAdvanceRuling(
+            @Query("key") String keyword
+    );
+    @GET("ewaybillnotification")
+    Call<List<EwayBillNotification>> getEwayBillNotification(
+            @Query("key") String keyword
+    );
 
     @GET("pressrelease")
     Call<List<PressRelease>> getPressRelease(
             @Query("key") String keyword
     );
+    @GET("sgstsites")
+    Call<List<SgstSites>> getSites(
+            @Query("key") String keyword
+    );
     @GET("orders")
     Call<List<Orders>> getOrders(
+            @Query("key") String keyword
+    );
+    @GET("ewaybillfaq")
+    Call<List<EwayBillFAQ>> getEwayFaq(
             @Query("key") String keyword
     );
 
@@ -91,7 +111,7 @@ public interface GstSamadhanApi {
             @Field("pincode") String pincode
     );
     @FormUrlEncoded
-    @POST("purchase_plan")
+    @POST("payment")
     Call<Purchase> submitTransaction(
             @Field("client_id") String client_id,
             @Field("plan_id") String plan_id,

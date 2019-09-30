@@ -18,11 +18,12 @@
         >
 
         <RelativeLayout
+            android:id="@+id/EwayRV"
+            android:gravity="center_vertical"
             android:background="@android:color/white"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:padding="18dp">
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -34,16 +35,16 @@
                         android:textSize="14sp"
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
-                        android:layout_weight="0.4"
-                        android:text="Category"
+                        android:layout_weight="0.5"
+                        android:text="State"
                         android:textColor="#AAA" />
 
                     <TextView
                         android:textSize="14sp"
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
-                        android:layout_weight="0.6"
-                        android:text="Uploading Date"
+                        android:layout_weight="0.5"
+                        android:text="Dated"
                         android:textColor="#AAA" />
                 </LinearLayout>
                 <LinearLayout
@@ -51,24 +52,51 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/NotiNumber"
+                        android:id="@+id/State"
                         android:textSize="18sp"
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
-                        android:layout_weight="0.4"
-                        android:text="CBIC"
+                        android:layout_weight="0.5"
+                        android:text="Rajasthan"
                         android:textColor="#3E3E3E" />
 
                     <TextView
-                        android:id="@+id/NotiDate"
+                        android:id="@+id/Dated"
                         android:textSize="16sp"
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
-                        android:layout_weight="0.6"
-                        android:text="Carribean cruise"
+                        android:layout_weight="0.5"
+                        android:text="0000-00-00"
+                        android:textColor="#3E3E3E" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Notification No."
+                        android:textColor="#AAA" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/Notification_No"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Order RAJ/ AAR/2019-20/17"
                         android:textColor="#3E3E3E" />
                 </LinearLayout>
             </LinearLayout>
+
+
+
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:adjustViewBounds="true"
@@ -97,18 +125,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:textAlignment="center"
                 android:id="@+id/content"
                 android:textColor="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Seeks to extend the last date for furnishing FORM GST CMP-08 for the quarter April -June 2019 till 31.08.2019"/>
+                android:text="Classification of any goods or services or both. Admissibility of Input Tax credit of Tax paid or deemed to have been paid. Determination of the liability to pay tax on any goods or services or both."/>
 
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/EnglishDownload"
+                    android:id="@+id/DownloadDoc"
                     android:layout_margin="20dp"
                     app:cardCornerRadius="5dp"
                     app:cardBackgroundColor="@color/colorAccent"
@@ -132,35 +161,7 @@
                             android:textStyle="bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="English"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/HindiDownload"
-                    android:layout_margin="20dp"
-                    app:cardCornerRadius="5dp"
-                    app:cardBackgroundColor="@color/colorPrimary"
-                    android:layout_weight="0.5"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_marginRight="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_pdf_white"/>
-                        <TextView
-                            android:id="@+id/text2"
-                            android:textColor="@android:color/white"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Hindi"/>
+                            android:text="Download Document"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

@@ -40,7 +40,7 @@ public class PricingActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
             }
         });
-        Expert.setOnClickListener(new View.OnClickListener() {
+        Standard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PricingActivity.this,CheckoutActivity.class);
@@ -49,7 +49,7 @@ public class PricingActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
             }
         });
-        Standard.setOnClickListener(new View.OnClickListener() {
+        Expert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PricingActivity.this,CheckoutActivity.class);

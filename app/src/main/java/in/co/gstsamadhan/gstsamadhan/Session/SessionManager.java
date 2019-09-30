@@ -56,7 +56,7 @@ public class SessionManager {
         user.put(CLIENT_PLAN, sharedPreferences.getString(CLIENT_PLAN, null));
         return user;
     }
-    public void update(String client_id,String client_name,String client_email,String client_mobile,String Client_plan){
+    public void update(String client_id,String client_name,String client_email,String client_mobile,String client_plan){
         editor.clear();
         editor.commit();
         editor.putBoolean(LOGIN, true);
@@ -64,11 +64,8 @@ public class SessionManager {
         editor.putString(CLIENT_EMAIL, client_email);
         editor.putString(CLIENT_NAME, client_name);
         editor.putString(CLIENT_MOBILE, client_mobile);
-        editor.putString(CLIENT_PLAN,Client_plan);
+        editor.putString(CLIENT_PLAN,client_plan);
         editor.apply();
-        Intent i = new Intent(context, MainActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(i);
     }
     public void logout(){
         editor.clear();

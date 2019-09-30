@@ -1,5 +1,6 @@
 package in.co.gstsamadhan.gstsamadhan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -12,6 +13,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -25,35 +27,34 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.List;
 
-import in.co.gstsamadhan.gstsamadhan.Adapter.ActsAdapter;
-import in.co.gstsamadhan.gstsamadhan.Adapter.NewsAdapter;
-import in.co.gstsamadhan.gstsamadhan.model.Acts;
-import in.co.gstsamadhan.gstsamadhan.model.News;
+import in.co.gstsamadhan.gstsamadhan.Adapter.EwayBillFAQAdapter;
+import in.co.gstsamadhan.gstsamadhan.Adapter.NotificationAdapter;
+import in.co.gstsamadhan.gstsamadhan.model.EwayBillFAQ;
+import in.co.gstsamadhan.gstsamadhan.model.Notification;
 import network.GstSamadhanApi;
 import network.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewsActivity extends AppCompatActivity {
+public class EwayBillFaq extends AppCompatActivity {
     private RecyclerView recyclerView ;
     ShimmerFrameLayout shimmerFrameLayout;
     private GstSamadhanApi gstSamadhanApi;
     ImageView NoInternetImage;
     LinearLayout NOaccessInternet;
     CardView RetryButton;
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
-
+        setContentView(R.layout.activity_eway_bill_faq);
         NoInternetImage = findViewById(R.id.NoInternetImage);
         RetryButton = findViewById(R.id.RetryButton);
         NOaccessInternet = findViewById(R.id.NOaccessInternet);
         //Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_keyboard_arrow_left_primary_color);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,14 +63,10 @@ public class NewsActivity extends AppCompatActivity {
             }
         });
 
-
         //shimmer
         shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
-
         //recyclerView
         recyclerView = findViewById(R.id.ActsRecyclerView);
-
-
         retrieveValues("");
 
 
@@ -77,7 +74,7 @@ public class NewsActivity extends AppCompatActivity {
     }//OnCreate End
 
     private void retrieveValues(final String Keyword) {
-        if(!isConnected(NewsActivity.this)){
+        if(!isConnected(EwayBillFaq.this)){
             shimmerFrameLayout.setVisibility(View.GONE);
             NOaccessInternet.setVisibility(View.VISIBLE);
             RetryButton.setOnClickListener(new View.OnClickListener() {
@@ -93,22 +90,22 @@ public class NewsActivity extends AppCompatActivity {
             shimmerFrameLayout.startShimmerAnimation();
             gstSamadhanApi = RetrofitClient.getApiClient().create(GstSamadhanApi.class);
 
-            Call<List<News>> call = gstSamadhanApi.getNews(Keyword);
+            Call<List<EwayBillFAQ>> call = gstSamadhanApi.getEwayFaq(Keyword);
 
-            call.enqueue(new Callback<List<News>>() {
+            call.enqueue(new Callback<List<EwayBillFAQ>>() {
                 @Override
-                public void onResponse(Call<List<News>> call, Response<List<News>> response) {
-                    List<News> retrievedList = response.body();
-                    NewsAdapter newsAdapter = new NewsAdapter(getApplicationContext(),retrievedList) ;
+                public void onResponse(Call<List<EwayBillFAQ>> call, Response<List<EwayBillFAQ>> response) {
+                    List<EwayBillFAQ> retrievedList = response.body();
+                    EwayBillFAQAdapter ewayBillFAQAdapter = new EwayBillFAQAdapter(getApplicationContext(),retrievedList) ;
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    recyclerView.setAdapter(newsAdapter);
+                    recyclerView.setAdapter(ewayBillFAQAdapter);
                     shimmerFrameLayout.stopShimmerAnimation();
                     shimmerFrameLayout.setVisibility(View.GONE);
 
                 }
 
                 @Override
-                public void onFailure(Call<List<News>> call, Throwable t) {
+                public void onFailure(Call<List<EwayBillFAQ>> call, Throwable t) {
 
                 }
             });

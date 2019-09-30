@@ -22,25 +22,28 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:padding="18dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/OrderNumber"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Order Number"
+                    android:textColor="#3E3E3E" />
 
-            <TextView
-                android:id="@+id/NotiNumber"
-                android:textSize="18sp"
-                android:layout_centerVertical="true"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Noti Number"
-                android:textColor="#3E3E3E" />
+                <TextView
+                    android:id="@+id/FileNumberOrder"
+                    android:textSize="15sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Form Number"
+                    android:textColor="#AAA" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/NotiNumber"
-                android:id="@+id/NotiDate"
-                android:textSize="16sp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Carribean cruise"
-                android:textColor="#AAA" />
+
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:adjustViewBounds="true"

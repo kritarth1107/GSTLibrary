@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -14,8 +15,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -112,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         searchbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                    startActivity(new Intent(MainActivity.this,AdvancedSearch.class));
             }
         });
 
@@ -170,6 +175,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_profile:
                 startActivity(new Intent(MainActivity.this,ProfileActivity.class));
                 break;
+            case R.id.nav_pp:
+                startActivity(new Intent(MainActivity.this,PrivacyPolicy.class));
+                break;
+            case R.id.nav_tou:
+                customeTab("https://gstsamadhan.co.in/terms");
+                break;
 
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -197,5 +208,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    public void customeTab(String URL) {
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        builder.setToolbarColor(ContextCompat.getColor(MainActivity.this, R.color.colorAccent));
+        builder.addDefaultShareMenuItem();
+
+        CustomTabsIntent anotherCustomTab = new CustomTabsIntent.Builder().build();
+
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_gst_samadhan_app_favicon);
+        int requestCode = 100;
+        Intent intent = anotherCustomTab.intent;
+        intent.setData(Uri.parse(URL));
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this,
+                requestCode,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        builder.setActionButton(bitmap, "Android", pendingIntent, true);
+        builder.setShowTitle(true);
+
+
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(MainActivity.this, Uri.parse(URL));
+    }
+
 
 }

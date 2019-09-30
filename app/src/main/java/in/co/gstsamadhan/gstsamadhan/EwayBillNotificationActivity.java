@@ -27,49 +27,53 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.List;
 
-import in.co.gstsamadhan.gstsamadhan.Adapter.GstFormsAdapter;
-import in.co.gstsamadhan.gstsamadhan.Adapter.NotificationAdapter;
-import in.co.gstsamadhan.gstsamadhan.model.Notification;
-import in.co.gstsamadhan.gstsamadhan.model.gstforms;
+import in.co.gstsamadhan.gstsamadhan.Adapter.AdvanceRulingAdapter;
+import in.co.gstsamadhan.gstsamadhan.Adapter.EwayBillNotificationAdapter;
+import in.co.gstsamadhan.gstsamadhan.model.AdvanceRuling;
+import in.co.gstsamadhan.gstsamadhan.model.EwayBillNotification;
 import network.GstSamadhanApi;
 import network.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GstForms extends AppCompatActivity {
+public class EwayBillNotificationActivity extends AppCompatActivity {
+
     private RecyclerView recyclerView ;
     ShimmerFrameLayout shimmerFrameLayout;
     EditText KeywordEditText;
     private GstSamadhanApi gstSamadhanApi;
     ImageView NoInternetImage,filter;
     LinearLayout NOaccessInternet;
-    CardView RetryButton;
+    CardView RetryButton,ApplyButton;
     FrameLayout design_bottom_sheet;
+    Spinner acts_array;
     View bg;
     private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gst_forms);
+        setContentView(R.layout.activity_eway_bill_notification);
         design_bottom_sheet = findViewById(R.id.design_bottom_sheet);
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(design_bottom_sheet);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         filter = findViewById(R.id.filter);
+        acts_array = findViewById(R.id.acts_array);
         KeywordEditText = findViewById(R.id.KeywordEditText);
         NoInternetImage = findViewById(R.id.NoInternetImage);
         RetryButton = findViewById(R.id.RetryButton);
         NOaccessInternet = findViewById(R.id.NOaccessInternet);
+        ApplyButton = findViewById(R.id.ApplyButton);
         //Toolbar
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 finish();
             }
         });
-
 
         //shimmer
         shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
@@ -104,6 +108,14 @@ public class GstForms extends AppCompatActivity {
                 bg.setVisibility(View.VISIBLE);
             }
         });
+        ApplyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                bg.setVisibility(View.GONE);
+                toolbar.setEnabled(true);
+            }
+        });
 
         //recyclerView
         recyclerView = findViewById(R.id.ActsRecyclerView);
@@ -131,7 +143,7 @@ public class GstForms extends AppCompatActivity {
     }//OnCreate End
 
     private void retrieveValues(final String Keyword) {
-        if(!isConnected(GstForms.this)){
+        if(!isConnected(EwayBillNotificationActivity.this)){
             shimmerFrameLayout.setVisibility(View.GONE);
             NOaccessInternet.setVisibility(View.VISIBLE);
             RetryButton.setOnClickListener(new View.OnClickListener() {
@@ -147,22 +159,22 @@ public class GstForms extends AppCompatActivity {
             shimmerFrameLayout.startShimmerAnimation();
             gstSamadhanApi = RetrofitClient.getApiClient().create(GstSamadhanApi.class);
 
-            Call<List<gstforms>> call = gstSamadhanApi.getGstForms(Keyword);
+            Call<List<EwayBillNotification>> call = gstSamadhanApi.getEwayBillNotification(Keyword);
 
-            call.enqueue(new Callback<List<gstforms>>() {
+            call.enqueue(new Callback<List<EwayBillNotification>>() {
                 @Override
-                public void onResponse(Call<List<gstforms>> call, Response<List<gstforms>> response) {
-                    List<gstforms> retrievedList = response.body();
-                    GstFormsAdapter gstFormsAdapter = new GstFormsAdapter(getApplicationContext(),retrievedList) ;
+                public void onResponse(Call<List<EwayBillNotification>> call, Response<List<EwayBillNotification>> response) {
+                    List<EwayBillNotification> retrievedList = response.body();
+                    EwayBillNotificationAdapter ewayBillNotificationAdapter = new EwayBillNotificationAdapter(getApplicationContext(),retrievedList) ;
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    recyclerView.setAdapter(gstFormsAdapter);
+                    recyclerView.setAdapter(ewayBillNotificationAdapter);
                     shimmerFrameLayout.stopShimmerAnimation();
                     shimmerFrameLayout.setVisibility(View.GONE);
 
                 }
 
                 @Override
-                public void onFailure(Call<List<gstforms>> call, Throwable t) {
+                public void onFailure(Call<List<EwayBillNotification>> call, Throwable t) {
 
                 }
             });

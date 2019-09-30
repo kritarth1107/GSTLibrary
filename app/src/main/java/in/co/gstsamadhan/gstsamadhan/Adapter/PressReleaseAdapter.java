@@ -1,6 +1,9 @@
 package in.co.gstsamadhan.gstsamadhan.Adapter;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,13 +67,20 @@ public class PressReleaseAdapter extends RecyclerView.Adapter<PressReleaseAdapte
             @Override
             public void onClick(View view) {
                 String url = mData.get(position).getAtachment();
-                Toast.makeText(mContext, "-" + url + "-", Toast.LENGTH_SHORT).show();
-
                 if (url.endsWith(".pdf")) {
-                    Toast.makeText(mContext, "-" + url + "-", Toast.LENGTH_SHORT).show();
 
-                } else {
-                    Toast.makeText(mContext, "File Not Available", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(Uri.parse(url), "application/pdf");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    try {
+                        mContext.startActivity(intent);
+                    } catch (ActivityNotFoundException e) {
+                        //user does not have a pdf viewer installed
+                        Toast.makeText(mContext, "You Don't Have PDF Viewer Installed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(mContext, "Something Went Wrong", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -78,14 +88,20 @@ public class PressReleaseAdapter extends RecyclerView.Adapter<PressReleaseAdapte
             @Override
             public void onClick(View view) {
                 String url = mData.get(position).getHindilink();
-
-
                 if (url.endsWith(".pdf")) {
-                    Toast.makeText(mContext, "-" + url + "-", Toast.LENGTH_SHORT).show();
 
-
-                } else {
-                    Toast.makeText(mContext, "File Not Available", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(Uri.parse(url), "application/pdf");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    try {
+                        mContext.startActivity(intent);
+                    } catch (ActivityNotFoundException e) {
+                        //user does not have a pdf viewer installed
+                        Toast.makeText(mContext, "You Don't Have PDF Viewer Installed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(mContext, "Something Went Wrong", Toast.LENGTH_SHORT).show();
                 }
             }
         });

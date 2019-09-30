@@ -68,10 +68,12 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
     String mCLientName ;
     String mCLientEmail ;
     String mCLientMobile ;
+    String mClientPlan;
     String discountType="None",discount="0";
     String TransactionID;
     String Plan;
     double d=0;
+    String pp=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,7 +108,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
         DateFormat df = new SimpleDateFormat("dd");
         date = df.format(Calendar.getInstance().getTime());
 
-        DateFormat mf = new SimpleDateFormat("MMM");
+        DateFormat mf = new SimpleDateFormat("MM");
         month =mf.format(Calendar.getInstance().getTime());
 
         DateFormat tx = new SimpleDateFormat("yyyyMMddhhmmss");
@@ -119,6 +121,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
             mCLientName = user.get(sessionManager.CLIENT_NAME);
             mCLientEmail = user.get(sessionManager.CLIENT_EMAIL);
             mCLientMobile = user.get(sessionManager.CLIENT_MOBILE);
+            mClientPlan = user.get(sessionManager.CLIENT_PLAN);
 
         }
         paynow.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +152,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
             public void onClick(View view) {
 
                     PromoCode = PromoEt.getText().toString().trim();
+                    pp=PromoCode;
                     if(PromoCode.isEmpty()){
                         PromoEt.setError("Empty Code");
                     }
@@ -205,6 +209,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
             @Override
             public void onClick(View view) {
                 PromoCode = "None";
+                pp=null;
                 d = 0;
                 discountType = "None";
                 assignValues(Plan,PromoCode,planDuration-1,d,discountType);
@@ -219,6 +224,8 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
 
 
 
+
+
     }
     public void assignValues(String Plan,String PromoCode,int Duration,double disc,String type){
         planDuration = Duration+1;
@@ -226,7 +233,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.YEAR,planDuration);
         year = yf.format(cal.getTime());
-        planExpiry.setText(date+"-"+month+"-"+year);
+        planExpiry.setText(year+"-"+month+"-"+date);
         switch (Plan){
             case "1":
                 planTitle.setText("Basic Plan");
@@ -269,7 +276,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
                 break;
             case "2":
                 planTitle.setText("Expert Plan");
-                baseammount = 9999*planDuration;
+                baseammount = 7499*planDuration;
                 planAmount.setText(String.valueOf(baseammount));
 
                 if(!PromoCode.equals("None")){
@@ -308,7 +315,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
                 break;
             case "3":
                 planTitle.setText("Standard Plan");
-                baseammount = 7499*planDuration;
+                baseammount = 9999*planDuration;
                 planAmount.setText(String.valueOf(baseammount));
 
                 if(!PromoCode.equals("None")){
@@ -390,7 +397,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
                 //once we get the checksum we will initiailize the payment.
                 //the method is taking the checksum we got and the paytm object as the parameter
                 if(paytm.getTxnAmount().equals("0")){
-                    submitTransaction("TXN_SUCCESS","0",paytm.getOrderId(),"NONE","No_Bank_Transaction",TransactionID,"00-abc-0000");
+                    submitTransaction("TXN_SUCCESS","0",paytm.getOrderId(),"No-PaymentMode","No_Bank_Transaction",TransactionID,"00-abc-0000");
 
                 }
                 else{
@@ -460,7 +467,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
         String RESPMSG = inResponse.getString("RESPMSG");
         String BANKNAME = inResponse.getString("BANKNAME");
 
-        submitTransaction(status,TXNAMOUNT,ORDERID,PAYMENTMODE,BANKTXNID,TXNID,TXNDATE);
+        submitTransaction(status,TXNAMOUNT,ORDERID,"PAYTM",BANKTXNID,TXNID,TXNDATE);
 
     }
 
@@ -494,38 +501,56 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
         Toast.makeText(this, s + bundle.toString(), Toast.LENGTH_LONG).show();
     }
 
-    public void submitTransaction(String status, String TXNAMOUNT, String ORDERID, String PAYMENTMODE, String BANKTXNID, String TXNID, String TXNDATE){
+    public void submitTransaction(final String status, final String TXNAMOUNT, final String ORDERID, final String PAYMENTMODE, final String BANKTXNID, final String TXNID, final String TXNDATE){
 
         String base = planAmount.getText().toString().trim();
         String planDisc = planDisscount.getText().toString().trim() ;
         String planGST = planTax.getText().toString().trim();
         String exp_date= planExpiry.getText().toString().trim();
-
-
+        String rangePlan=null;
+        long range = spinner.getSelectedItemId();
+        if(range==0){rangePlan="1";}
+        else if(range==1){rangePlan="2";}
+        else if(range==2){rangePlan="3";}
+        else if(range==3){rangePlan="4";}
+        else if(range==4){rangePlan="5";}
         GstSamadhanApi gstSamadhanApi = RetrofitClient.getApiClient().create(GstSamadhanApi.class);
         Call<Purchase> call = gstSamadhanApi.submitTransaction(
-                mCLientID,Plan,TXNID,"",base,"",planDisc,planGST,TXNAMOUNT,TXNAMOUNT,PAYMENTMODE,mCLientMobile,mCLientEmail,mCLientName,status,exp_date
+                mCLientID,Plan,TXNID,rangePlan,base,pp,planDisc,planGST,TXNAMOUNT,TXNAMOUNT,PAYMENTMODE,mCLientMobile,mCLientEmail,mCLientName,status,exp_date
         );
         call.enqueue(new Callback<Purchase>() {
             @Override
             public void onResponse(Call<Purchase> call, Response<Purchase> response) {
-                /*
-                String success = response.body().getRegistration().trim();
+
+                String success = response.body().getTransaction().trim();
                 if(success.equals("1")){
+                    String success_plan_id = response.body().getPlan_id();
+                    sessionManager.createSession(mCLientID,mCLientName,mCLientEmail,mCLientMobile,success_plan_id);
                     Intent intent =  new Intent(CheckoutActivity.this, TransactionStatus.class);
-        intent.putExtra("TxStatus",status);
-        intent.putExtra("TxAmount",TXNAMOUNT);
-        intent.putExtra("TxOrderID",ORDERID);
-        intent.putExtra("TxMode",PAYMENTMODE);
-        intent.putExtra("TxBankId",BANKTXNID);
-        intent.putExtra("TxID",TXNID);
-        intent.putExtra("Txdate",TXNDATE);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+                    intent.putExtra("TxStatus",status);
+                    intent.putExtra("TxAmount",TXNAMOUNT);
+                    intent.putExtra("TxOrderID",ORDERID);
+                    intent.putExtra("TxMode",PAYMENTMODE);
+                    intent.putExtra("TxBankId",BANKTXNID);
+                    intent.putExtra("TxID",TXNID);
+                    intent.putExtra("Txdate",TXNDATE);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
                 else if(success.equals("0")){
+                    sessionManager.createSession(mCLientID,mCLientName,mCLientEmail,mCLientMobile,"null");
+                    Intent intent =  new Intent(CheckoutActivity.this, TransactionStatus.class);
+                    intent.putExtra("TxStatus",status);
+                    intent.putExtra("TxAmount",TXNAMOUNT);
+                    intent.putExtra("TxOrderID",ORDERID);
+                    intent.putExtra("TxMode",PAYMENTMODE);
+                    intent.putExtra("TxBankId",BANKTXNID);
+                    intent.putExtra("TxID",TXNID);
+                    intent.putExtra("Txdate",TXNDATE);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
-                */
+
             }
 
             @Override
@@ -535,15 +560,6 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
         });
 
 
-        Intent intent =  new Intent(CheckoutActivity.this, TransactionStatus.class);
-        intent.putExtra("TxStatus",status);
-        intent.putExtra("TxAmount",TXNAMOUNT);
-        intent.putExtra("TxOrderID",ORDERID);
-        intent.putExtra("TxMode",PAYMENTMODE);
-        intent.putExtra("TxBankId",BANKTXNID);
-        intent.putExtra("TxID",TXNID);
-        intent.putExtra("Txdate",TXNDATE);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+
     }
 }

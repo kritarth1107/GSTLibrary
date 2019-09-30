@@ -1,0 +1,187 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/coordinator"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/design_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="50dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:elevation="1dp"
+                android:paddingLeft="25dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:text="Filters"
+                    android:layout_weight="0.8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:padding="11dp"
+                    android:layout_weight="0.2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_keyboard_arrow_up"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:padding="25dp"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_marginBottom="10dp"
+                        android:padding="1dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bgborderradius"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <TextView
+                            android:background="@drawable/bgradius"
+                            android:gravity="center_vertical"
+                            android:textAlignment="center"
+                            android:layout_weight="0.3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="Category"
+                            android:textColor="@android:color/black"/>
+                        <Spinner
+                            android:layout_weight="0.7"
+                            android:entries="@array/ruling_catg"
+                            android:id="@+id/acts_array"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginBottom="10dp"
+                        android:padding="1dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bgborderradius"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <TextView
+                            android:background="@drawable/bgradius"
+                            android:gravity="center_vertical"
+                            android:textAlignment="center"
+                            android:layout_weight="0.3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="State"
+                            android:textColor="@android:color/black"/>
+                        <Spinner
+                            android:layout_weight="0.7"
+                            android:entries="@array/state"
+                            android:id="@+id/state_array"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginBottom="10dp"
+                        android:padding="1dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bgborderradius"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <TextView
+                            android:background="@drawable/bgradius"
+                            android:gravity="center_vertical"
+                            android:textAlignment="center"
+                            android:layout_weight="0.3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="Year"
+                            android:textColor="@android:color/black"/>
+                        <Spinner
+                            android:layout_weight="0.7"
+                            android:entries="@array/year_array"
+                            android:id="@+id/year_array"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginBottom="10dp"
+                        android:padding="1dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bgborderradius"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <TextView
+                            android:background="@drawable/bgradius"
+                            android:gravity="center_vertical"
+                            android:textAlignment="center"
+                            android:layout_weight="0.3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="Month"
+                            android:textColor="@android:color/black"/>
+                        <Spinner
+                            android:layout_weight="0.7"
+                            android:entries="@array/month_array"
+                            android:id="@+id/month_Year"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ApplyButton"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardBackgroundColor="@color/colorAccent"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Apply Filters"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

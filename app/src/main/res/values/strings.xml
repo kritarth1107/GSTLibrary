@@ -18,6 +18,31 @@
         <item>UTGST Rules</item>
         <item>GST Settlement Rules</item>
     </string-array>
+    <string-array name="ruling_catg">
+        <item>--Select Category--</item>
+        <item>AAR</item>
+        <item>AAAR</item>
+    </string-array>
+    <string-array name="month_array">
+        <item>--Select Month--</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string-array name="press_release_array">
+        <item>CBIC</item>
+        <item>PIB</item>
+    </string-array>
+
     <string-array name="notification_array">
         <item>Central Tax</item>
         <item>Central Tax (Rates)</item>

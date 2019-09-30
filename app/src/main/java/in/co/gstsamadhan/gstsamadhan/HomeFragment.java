@@ -75,14 +75,17 @@ public class HomeFragment extends Fragment {
                             HashMap<String, String> user = sessionManager.getUserDetail();
                             String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
                             if(mClientPlan.equals("null")){
+
                                 Intent i = new Intent(getContext(),PricingActivity.class);
                                 i.putExtra("error","Not-Purchased");
                                 startActivity(i);
 
                             }
                             else{
+
                                 Intent i = new Intent(getContext(),ActsActivity.class);
                                 startActivity(i);
+
                             }
 
                         }
@@ -155,6 +158,27 @@ public class HomeFragment extends Fragment {
                             Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
 
                     }
+                    else if(finalI==4)
+
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("2") || mClientPlan.equals("3")){
+                                Intent i = new Intent(getContext(),AdvanceRulingActivity.class);
+                                startActivity(i);
+
+                            }
+                            else{
+
+                                Toast.makeText(getContext(), "Please Upgrade Your Plan", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
                     else if(finalI==5)
                     {
                         if(sessionManager.isLoggin())
@@ -216,6 +240,48 @@ public class HomeFragment extends Fragment {
             rv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(finalI==2)
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),EwayBillNotificationActivity.class);
+                                startActivity(i);
+                            }
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
+                    if(finalI==3)
+                    {
+                        if(sessionManager.isLoggin())
+                        {
+                            HashMap<String, String> user = sessionManager.getUserDetail();
+                            String mClientPlan = user.get(sessionManager.CLIENT_PLAN);
+                            if(mClientPlan.equals("null")){
+                                Intent i = new Intent(getContext(),PricingActivity.class);
+                                i.putExtra("error","Not-Purchased");
+                                startActivity(i);
+
+                            }
+                            else{
+                                Intent i = new Intent(getContext(),EwayBillFaq.class);
+                                startActivity(i);
+                            }
+                        }
+                        else
+                            Toast.makeText(getContext(), "Please Login to Access", Toast.LENGTH_SHORT).show();
+
+                    }
                     if(finalI==4)
                     {
                         startActivity(new Intent(getContext(),NewsActivity.class));
@@ -224,6 +290,11 @@ public class HomeFragment extends Fragment {
                     if(finalI==5)
                     {
                         startActivity(new Intent(getContext(),VideoLibrary.class));
+
+                    }
+                    if(finalI==6)
+                    {
+                        startActivity(new Intent(getContext(),GST_Sites.class));
 
                     }
 

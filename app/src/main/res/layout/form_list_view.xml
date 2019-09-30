@@ -18,57 +18,42 @@
         >
 
         <RelativeLayout
+            android:gravity="center_vertical"
             android:background="@android:color/white"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:padding="18dp">
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
                         android:textSize="14sp"
                         android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:layout_weight="0.4"
-                        android:text="Category"
+                        android:layout_width="wrap_content"
+                        android:text="Form Name"
                         android:textColor="#AAA" />
 
-                    <TextView
-                        android:textSize="14sp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:layout_weight="0.6"
-                        android:text="Uploading Date"
-                        android:textColor="#AAA" />
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/accordionHeader"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/NotiNumber"
+                        android:id="@+id/formName"
                         android:textSize="18sp"
                         android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:layout_weight="0.4"
-                        android:text="CBIC"
+                        android:layout_width="wrap_content"
+                        android:text="Form Name"
                         android:textColor="#3E3E3E" />
 
-                    <TextView
-                        android:id="@+id/NotiDate"
-                        android:textSize="16sp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:layout_weight="0.6"
-                        android:text="Carribean cruise"
-                        android:textColor="#3E3E3E" />
                 </LinearLayout>
             </LinearLayout>
+
+
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:adjustViewBounds="true"

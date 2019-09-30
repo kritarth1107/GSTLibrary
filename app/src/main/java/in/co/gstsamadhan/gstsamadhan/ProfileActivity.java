@@ -56,11 +56,16 @@ public class ProfileActivity extends AppCompatActivity {
         name.setText(mCLientName);
         phone.setText("+91 "+mCLientMobile);
         email.setText(mCLientEmail);
-        if(mCLientPlan.equals("null")){
+        if(mCLientPlan.equals("null") || mCLientPlan.equals(null)){
             plan.setText("No Plan Purchased");
         }
         else{
-            plan.setText("Plan Purchased");
+            switch (mCLientPlan){
+                case "1":plan.setText("Basic Plan");break;
+                case "2":plan.setText("Standard Plan");break;
+                case "3":plan.setText("Expert Plan");break;
+            }
+
         }
 
 

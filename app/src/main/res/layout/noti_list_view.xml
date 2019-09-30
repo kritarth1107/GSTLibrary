@@ -23,27 +23,53 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:padding="18dp">
-<LinearLayout
-    android:id="@+id/accordionHeader"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/NotiNumber"
-        android:textSize="18sp"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Noti Number"
-        android:textColor="#3E3E3E" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:text="Notification Number"
+                        android:textColor="#AAA" />
 
-    <TextView
-        android:id="@+id/NotiDate"
-        android:textSize="16sp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_width="wrap_content"
-        android:text="Carribean cruise"
-        android:textColor="#AAA" />
-</LinearLayout>
+                    <TextView
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:text="Notification Date"
+                        android:textColor="#AAA" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/accordionHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/NotiNumber"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:text="ABCD1234"
+                        android:textColor="#3E3E3E" />
+
+                    <TextView
+                        android:id="@+id/NotiDate"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:text="00-abc-0000"
+                        android:textColor="#3E3E3E" />
+                </LinearLayout>
+            </LinearLayout>
+
 
 
 

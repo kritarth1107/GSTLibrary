@@ -27,14 +27,11 @@ public class Purchase {
     private String forgetOtpCode;
     private String forgetOtpTime;
     private String plan;
-    private String registration;
-    private String error;
+    private String Transaction;
+    private String Error;
+    private String plan_id;
 
-
-    public Purchase(){}
-
-
-    public Purchase(String id, String source, String fname, String lname, String profession, String email, String mobile, String password, String firmName, String foundingDate, String website, String phone, String state, String city, String locality, String address, String pincode, String landMark, String status, String createdAt, String updatedAt, String flag, String forgetOtpCode, String forgetOtpTime, String plan, String registration, String error) {
+    public Purchase(String id, String source, String fname, String lname, String profession, String email, String mobile, String password, String firmName, String foundingDate, String website, String phone, String state, String city, String locality, String address, String pincode, String landMark, String status, String createdAt, String updatedAt, String flag, String forgetOtpCode, String forgetOtpTime, String plan, String transaction, String error, String plan_id) {
         this.id = id;
         this.source = source;
         this.fname = fname;
@@ -60,10 +57,12 @@ public class Purchase {
         this.forgetOtpCode = forgetOtpCode;
         this.forgetOtpTime = forgetOtpTime;
         this.plan = plan;
-        this.registration = registration;
-        this.error = error;
+        Transaction = transaction;
+        Error = error;
+        this.plan_id = plan_id;
     }
 
+    public Purchase(){}
 
     public String getId() {
         return id;
@@ -265,19 +264,27 @@ public class Purchase {
         this.plan = plan;
     }
 
-    public String getRegistration() {
-        return registration;
+    public String getTransaction() {
+        return Transaction;
     }
 
-    public void setRegistration(String registration) {
-        this.registration = registration;
+    public void setTransaction(String transaction) {
+        Transaction = transaction;
     }
 
     public String getError() {
-        return error;
+        return Error;
     }
 
     public void setError(String error) {
-        this.error = error;
+        Error = error;
+    }
+
+    public String getPlan_id() {
+        return plan_id;
+    }
+
+    public void setPlan_id(String plan_id) {
+        this.plan_id = plan_id;
     }
 }

@@ -10,50 +10,43 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.List;
 
-import in.co.gstsamadhan.gstsamadhan.Adapter.ActsAdapter;
-import in.co.gstsamadhan.gstsamadhan.Adapter.NewsAdapter;
-import in.co.gstsamadhan.gstsamadhan.model.Acts;
-import in.co.gstsamadhan.gstsamadhan.model.News;
+import in.co.gstsamadhan.gstsamadhan.Adapter.EwayBillFAQAdapter;
+import in.co.gstsamadhan.gstsamadhan.Adapter.SgstSitesAdapter;
+import in.co.gstsamadhan.gstsamadhan.model.EwayBillFAQ;
+import in.co.gstsamadhan.gstsamadhan.model.SgstSites;
 import network.GstSamadhanApi;
 import network.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewsActivity extends AppCompatActivity {
+public class GST_Sites extends AppCompatActivity {
+
     private RecyclerView recyclerView ;
     ShimmerFrameLayout shimmerFrameLayout;
     private GstSamadhanApi gstSamadhanApi;
     ImageView NoInternetImage;
     LinearLayout NOaccessInternet;
     CardView RetryButton;
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
-
+        setContentView(R.layout.activity_gst__sites);
         NoInternetImage = findViewById(R.id.NoInternetImage);
         RetryButton = findViewById(R.id.RetryButton);
         NOaccessInternet = findViewById(R.id.NOaccessInternet);
         //Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_keyboard_arrow_left_primary_color);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,14 +55,10 @@ public class NewsActivity extends AppCompatActivity {
             }
         });
 
-
         //shimmer
         shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
-
         //recyclerView
         recyclerView = findViewById(R.id.ActsRecyclerView);
-
-
         retrieveValues("");
 
 
@@ -77,7 +66,7 @@ public class NewsActivity extends AppCompatActivity {
     }//OnCreate End
 
     private void retrieveValues(final String Keyword) {
-        if(!isConnected(NewsActivity.this)){
+        if(!isConnected(GST_Sites.this)){
             shimmerFrameLayout.setVisibility(View.GONE);
             NOaccessInternet.setVisibility(View.VISIBLE);
             RetryButton.setOnClickListener(new View.OnClickListener() {
@@ -93,22 +82,22 @@ public class NewsActivity extends AppCompatActivity {
             shimmerFrameLayout.startShimmerAnimation();
             gstSamadhanApi = RetrofitClient.getApiClient().create(GstSamadhanApi.class);
 
-            Call<List<News>> call = gstSamadhanApi.getNews(Keyword);
+            Call<List<SgstSites>> call = gstSamadhanApi.getSites(Keyword);
 
-            call.enqueue(new Callback<List<News>>() {
+            call.enqueue(new Callback<List<SgstSites>>() {
                 @Override
-                public void onResponse(Call<List<News>> call, Response<List<News>> response) {
-                    List<News> retrievedList = response.body();
-                    NewsAdapter newsAdapter = new NewsAdapter(getApplicationContext(),retrievedList) ;
+                public void onResponse(Call<List<SgstSites>> call, Response<List<SgstSites>> response) {
+                    List<SgstSites> retrievedList = response.body();
+                    SgstSitesAdapter sgstSitesAdapter = new SgstSitesAdapter(getApplicationContext(),retrievedList) ;
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    recyclerView.setAdapter(newsAdapter);
+                    recyclerView.setAdapter(sgstSitesAdapter);
                     shimmerFrameLayout.stopShimmerAnimation();
                     shimmerFrameLayout.setVisibility(View.GONE);
 
                 }
 
                 @Override
-                public void onFailure(Call<List<News>> call, Throwable t) {
+                public void onFailure(Call<List<SgstSites>> call, Throwable t) {
 
                 }
             });
