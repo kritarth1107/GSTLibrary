@@ -8,6 +8,8 @@ import in.co.gstsamadhan.gstsamadhan.model.AdvanceRuling;
 import in.co.gstsamadhan.gstsamadhan.model.Coupon;
 import in.co.gstsamadhan.gstsamadhan.model.EwayBillFAQ;
 import in.co.gstsamadhan.gstsamadhan.model.EwayBillNotification;
+import in.co.gstsamadhan.gstsamadhan.model.Experts;
+import in.co.gstsamadhan.gstsamadhan.model.Generate;
 import in.co.gstsamadhan.gstsamadhan.model.News;
 import in.co.gstsamadhan.gstsamadhan.model.Notification;
 import in.co.gstsamadhan.gstsamadhan.model.Orders;
@@ -17,6 +19,7 @@ import in.co.gstsamadhan.gstsamadhan.model.Registration;
 import in.co.gstsamadhan.gstsamadhan.model.Rules;
 import in.co.gstsamadhan.gstsamadhan.model.SgstSites;
 import in.co.gstsamadhan.gstsamadhan.model.User;
+import in.co.gstsamadhan.gstsamadhan.model.Verify;
 import in.co.gstsamadhan.gstsamadhan.model.Video;
 import in.co.gstsamadhan.gstsamadhan.model.gstforms;
 import retrofit2.Call;
@@ -43,6 +46,31 @@ public interface GstSamadhanApi {
     Call<List<News>> getNews(
                     @Query("key") String keyword
             );
+    @GET("login/mobile")
+    Call<User> getMobileLogin(
+            @Query("mobile") String mobile
+    );
+
+    @FormUrlEncoded
+    @POST("forget")
+    Call<Verify> setForgetPassword(
+            @Field("mobile") String mobile,
+            @Field("password") String password
+    );
+
+    @GET("checkmobile")
+    Call<Verify> verifyMobile(
+            @Query("mobile") String mobile
+    );
+
+
+    @GET("news/five")
+    Call<List<News>> getFiveNews();
+
+    @GET("experts")
+    Call<List<Experts>> getExperts();
+
+
     @GET("notification")
     Call<List<Notification>> getGstNotifications(
             @Query("key") String keyword
@@ -59,6 +87,7 @@ public interface GstSamadhanApi {
     Call<List<EwayBillNotification>> getEwayBillNotification(
             @Query("key") String keyword
     );
+
 
     @GET("pressrelease")
     Call<List<PressRelease>> getPressRelease(
@@ -139,5 +168,20 @@ public interface GstSamadhanApi {
     @GET("videos")
     Call<List<Video>> getVideos(
     );
+
+    //Generate Login OTP
+    @GET("generate")
+    Call<Generate> generateOtp(
+            @Query("mobile") String mobile
+    );
+
+    //Generate Login OTP
+    @POST("send_sms")
+    Call<Generate> send_sms(
+            @Query("mobile") String mobile,
+            @Query("message") String message
+    );
+
+
 
 }

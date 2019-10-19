@@ -30,11 +30,12 @@ public class User {
     private String forgetOtpCode;
     private String forgetOtpTime;
     private String plan;
+    private String plan_id;
     private String loginstatus;
 
     public User(){}
 
-    public User(String id, String source, String fname, String lname, String profession, String email, String mobile, String password, String firmName, String foundingDate, String website, String phone, String state, String city, String locality, String address, String pincode, String landMark, String status, String createdAt, String updatedAt, String flag, String forgetOtpCode, String forgetOtpTime, String plan, String loginstatus) {
+    public User(String id, String source, String fname, String lname, String profession, String email, String mobile, String password, String firmName, String foundingDate, String website, String phone, String state, String city, String locality, String address, String pincode, String landMark, String status, String createdAt, String updatedAt, String flag, String forgetOtpCode, String forgetOtpTime, String plan, String plan_id, String loginstatus) {
         this.id = id;
         this.source = source;
         this.fname = fname;
@@ -60,6 +61,7 @@ public class User {
         this.forgetOtpCode = forgetOtpCode;
         this.forgetOtpTime = forgetOtpTime;
         this.plan = plan;
+        this.plan_id = plan_id;
         this.loginstatus = loginstatus;
     }
 
@@ -262,6 +264,14 @@ public class User {
 
     public void setPlan(String plan) {
         this.plan = plan;
+    }
+
+    public String getPlan_id() {
+        return plan_id;
+    }
+
+    public void setPlan_id(String plan_id) {
+        this.plan_id = plan_id;
     }
 
     public String getLoginstatus() {

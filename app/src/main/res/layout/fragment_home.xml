@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/tools"
 
     tools:context=".HomeFragment">
 <RelativeLayout
@@ -611,16 +612,15 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/arrowImageView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_keyboard_arrow_down"
                 android:layout_centerInParent="true"
                 />
             <ImageView
-
                 android:visibility="gone"
                 android:id="@+id/arrowImageView2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_keyboard_arrow_up"
                 android:layout_centerInParent="true" />
@@ -657,7 +657,7 @@
             android:columnOrderPreserved="false"
             android:rowCount="6">
             <RelativeLayout
-                android:background="@drawable/bgborder"
+                android:background="@drawable/bgorder_lefttop_radius"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_height="70dp">
@@ -670,10 +670,11 @@
 
                     >
                     <ImageView
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
+                        android:src="@drawable/ic_verified_experts"/>
 
                 </RelativeLayout>
                 <TextView
@@ -682,7 +683,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Verified GST Experts"
+                    android:text="Verified Experts"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"/>
@@ -701,10 +702,11 @@
 
                     >
                     <ImageView
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_ebook"/>
+                        android:src="@drawable/ic_book_store"/>
 
                 </RelativeLayout>
                 <TextView
@@ -732,11 +734,11 @@
 
                     >
                     <ImageView
-                        android:layout_margin="5dp"
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_computer"/>
+                        android:src="@drawable/ic_online_learning"/>
 
                 </RelativeLayout>
                 <TextView
@@ -751,7 +753,7 @@
                     android:layout_marginBottom="5dp"/>
             </RelativeLayout>
             <RelativeLayout
-                android:background="@drawable/bgborder"
+                android:background="@drawable/bgborder_topright_radius"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_height="70dp">
@@ -764,6 +766,7 @@
 
                     >
                     <ImageView
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -782,7 +785,7 @@
                     android:layout_marginBottom="5dp"/>
             </RelativeLayout>
             <RelativeLayout
-                android:background="@drawable/bgborder"
+                android:background="@drawable/bgborder_bottom_left_radius"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_height="70dp">
@@ -795,10 +798,11 @@
 
                     >
                     <ImageView
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
+                        android:src="@drawable/ic_business_opportunity"/>
 
                 </RelativeLayout>
                 <TextView
@@ -807,7 +811,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Business Opportunity"
+                    android:text="Opportunity"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="5dp"/>
@@ -826,10 +830,11 @@
 
                     >
                     <ImageView
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
+                        android:src="@drawable/ic_calendra"/>
 
                 </RelativeLayout>
                 <TextView
@@ -857,10 +862,11 @@
 
                     >
                     <ImageView
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
+                        android:src="@drawable/ic_students_corner"/>
 
                 </RelativeLayout>
                 <TextView
@@ -875,7 +881,7 @@
                     android:layout_marginBottom="5dp"/>
             </RelativeLayout>
             <RelativeLayout
-                android:background="@drawable/bgborder"
+                android:background="@drawable/bgborder_bottom_right_radius"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_height="70dp">
@@ -888,10 +894,11 @@
 
                     >
                     <ImageView
+                        android:padding="5dp"
                         android:layout_centerInParent="true"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_fingerprint_scan"/>
+                        android:src="@drawable/ic_more_options"/>
 
                 </RelativeLayout>
                 <TextView
@@ -920,6 +927,36 @@
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:text="Latest GST News"/>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:padding="10dp"
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            shimmer:duration="800">
+            <!-- Adding 7 rows of placeholders -->
+            <include layout="@layout/news_shinner_slider"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:layout_marginTop="30dp"
+            android:id="@+id/slideViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+        </androidx.viewpager.widget.ViewPager>
+        <LinearLayout
+            android:layout_below="@id/slideViewPager"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/dotsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:orientation="horizontal">
+
+        </LinearLayout>
     </RelativeLayout>
 
 

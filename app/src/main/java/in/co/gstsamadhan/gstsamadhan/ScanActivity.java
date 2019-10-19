@@ -25,8 +25,8 @@ public class ScanActivity extends AppCompatActivity {
     SurfaceView cameraView;
     TextView textView;
     CameraSource cameraSource;
-    final int RequestCameraPermissionID = 1001;
 
+                final int RequestCameraPermissionID = 1001;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

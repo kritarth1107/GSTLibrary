@@ -85,7 +85,7 @@ public class SgstSitesAdapter extends RecyclerView.Adapter<SgstSitesAdapter.MyVi
 
                 }catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(mContext, "Something Went Wrong", Toast.LENGTH_SHORT).show();}
 
             }
         });

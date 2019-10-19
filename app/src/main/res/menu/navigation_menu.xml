@@ -3,20 +3,33 @@
     <item android:title="Profile"
         android:icon="@drawable/ic_user"
         android:id="@+id/nav_profile" />
+
+
     <item android:title="Settings"
         android:icon="@drawable/ic_settings"
         android:id="@+id/nav_settings" />
+
     <item android:title="Privacy &amp; Policy"
         android:icon="@drawable/ic_test"
         android:id="@+id/nav_pp" />
+
     <item android:title="Terms of use"
+        android:icon="@drawable/ic_terms_of_use"
         android:id="@+id/nav_tou" />
+
     <item android:title="About Us"
+        android:icon="@drawable/ic_about_us"
         android:id="@+id/nav_about" />
+
     <item android:title="Contact Us"
+        android:icon="@drawable/ic_contact_us"
         android:id="@+id/nav_contact" />
+
     <item android:title="Support"
+        android:icon="@drawable/ic_contact_us"
         android:id="@+id/nav_support" />
+
     <item android:title="Logout"
+        android:icon="@drawable/ic_log_out"
         android:id="@+id/nav_logout" />
 </menu>

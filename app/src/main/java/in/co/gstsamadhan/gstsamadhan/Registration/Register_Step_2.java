@@ -140,7 +140,6 @@ public class Register_Step_2 extends AppCompatActivity {
                 try{
                     JSONObject jsonObject = new JSONObject(response);
                     String success = jsonObject.getString("registration");
-
                     if(success.equals("1")){
                         String client_id = jsonObject.getString("id").trim();
                         String client_name = jsonObject.getString("fname").trim();
@@ -151,25 +150,18 @@ public class Register_Step_2 extends AppCompatActivity {
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-
-
                     }
                     else if(success.equals("0")){
-
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(Register_Step_2.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
-
-
-
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(Register_Step_2.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
-
             }
         }){
             @Override
@@ -185,11 +177,8 @@ public class Register_Step_2 extends AppCompatActivity {
                 return params;
             }
         };
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
-
-
         */
     }
 }

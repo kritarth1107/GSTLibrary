@@ -28,6 +28,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import in.co.gstsamadhan.gstsamadhan.ForgetPassword.ForgetPassword;
 import in.co.gstsamadhan.gstsamadhan.MainActivity;
 import in.co.gstsamadhan.gstsamadhan.R;
 import in.co.gstsamadhan.gstsamadhan.Registration.RegisterActivity;
@@ -94,6 +95,13 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i = new Intent(LoginActivity.this,LoginWithOTP.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(i);
+                overridePendingTransition(0,0);
+            }
+        });
+        LoginForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(in.co.gstsamadhan.gstsamadhan.Login.LoginActivity.this, ForgetPassword.class));
                 overridePendingTransition(0,0);
             }
         });

@@ -275,7 +275,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
                 payableAmount.setText(new DecimalFormat("##").format(finalammount));
                 break;
             case "2":
-                planTitle.setText("Expert Plan");
+                planTitle.setText("Standard Plan");
                 baseammount = 7499*planDuration;
                 planAmount.setText(String.valueOf(baseammount));
 
@@ -314,7 +314,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
                 payableAmount.setText(new DecimalFormat("##").format(finalammount));
                 break;
             case "3":
-                planTitle.setText("Standard Plan");
+                planTitle.setText("Expert Plan");
                 baseammount = 9999*planDuration;
                 planAmount.setText(String.valueOf(baseammount));
 
@@ -416,7 +416,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
     private void initializePaytmPayment(String checksumHash, Paytm paytm) {
 
         //getting paytm service
-        PaytmPGService Service = PaytmPGService.getStagingService();
+        PaytmPGService Service = PaytmPGService.getProductionService();
 
         //use this when using for production
         //PaytmPGService Service = PaytmPGService.getProductionService();
@@ -466,6 +466,15 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
         String GATEWAYNAME = inResponse.getString("GATEWAYNAME");
         String RESPMSG = inResponse.getString("RESPMSG");
         String BANKNAME = inResponse.getString("BANKNAME");
+        String shareBody = inResponse.toString();
+
+
+        /*
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share Via")); */
+
 
         submitTransaction(status,TXNAMOUNT,ORDERID,"PAYTM",BANKTXNID,TXNID,TXNDATE);
 

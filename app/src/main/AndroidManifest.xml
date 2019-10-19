@@ -8,8 +8,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PrivacyPolicy"></activity>
+        <activity android:name=".UpcomingEvents"></activity>
+        <activity android:name=".ForgetPassword.NewPassword" />
+        <activity android:name=".ForgetPassword.Forget_Verification" />
+        <activity android:name=".ForgetPassword.ForgetPassword" />
+        <activity android:name=".ExpertsActivity" />
+        <activity android:name=".Login.VerificationActivity" />
+        <activity android:name=".ContactUs" />
+        <activity android:name=".ComingSoon" />
+        <activity android:name=".PrivacyPolicy" />
         <activity android:name=".EwayBillNotificationActivity" />
         <activity android:name=".GST_Sites" />
         <activity android:name=".AdvanceRulingActivity" />
@@ -63,6 +69,19 @@
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="ocr" />
+        <meta-data
+            android:name="sendotp.key"
+            android:value="276019AP7NQ6IsKSLT5cd5293e" />
+
+        <service android:name=".Notification.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/noti_logo" />
     </application>
 
 </manifest>

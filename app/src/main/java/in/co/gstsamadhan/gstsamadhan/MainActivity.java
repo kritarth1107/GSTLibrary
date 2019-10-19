@@ -88,18 +88,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 overridePendingTransition(0,0);
 
                                 break;
-                            case R.id.scan_bottom_navigation:
+                            case R.id.scan_bottom_navigation: /*
                                 startActivity(new Intent(MainActivity.this,ScanActivity.class));
                                 overridePendingTransition(R.anim.fade_up_down,R.anim.fade_down_up);
+                                */
+
+                                startActivity(new Intent(MainActivity.this,ComingSoon.class));
                                 break;
-                            case R.id.wallet_bottom_navigation:
+                            case R.id.wallet_bottom_navigation:/*
                                 if (frag.equals("Wallet")){
 
                                 }
                                 else{
                                     frag="Wallet";
                                     loadFragment(new ProfileFragment());
-                                }
+                                } */
+                                startActivity(new Intent(MainActivity.this,ComingSoon.class));
 
 
                                 break;
@@ -117,7 +121,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         searchbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    startActivity(new Intent(MainActivity.this,AdvancedSearch.class));
+
+                //    startActivity(new Intent(MainActivity.this,AdvancedSearch.class));
+                startActivity(new Intent(MainActivity.this,ComingSoon.class));
             }
         });
 
@@ -180,6 +186,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_tou:
                 customeTab("https://gstsamadhan.co.in/terms");
+                break;
+            case R.id.nav_contact:
+                startActivity(new Intent(MainActivity.this,ContactUs.class));
+                break;
+            case R.id.nav_about:
+                startActivity(new Intent(MainActivity.this,ContactUs.class));
+                break;
+            case R.id.nav_support:
+                startActivity(new Intent(MainActivity.this,ContactUs.class));
                 break;
 
         }

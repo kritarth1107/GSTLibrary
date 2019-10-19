@@ -78,11 +78,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.container.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_scale_animation));
-        holder.tv_title.setText(mData.get(position).getTitle());
         holder.newsDated.setText(mData.get(position).getDated());
         holder.newsAuthor.setText(mData.get(position).getAuthor());
         Glide.with(mContext).load(mData.get(position).getThumbnail()).apply(option).into(holder.thumbnail);
-
+        String hCheck = mData.get(position).getHindiTitle();
+        if(hCheck.equals("")){
+            holder.tv_title.setText(mData.get(position).getTitle());
+        }
+        else {
+            holder.tv_title.setText(mData.get(position).getHindiTitle());
+        }
 
 
 

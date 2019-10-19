@@ -4,6 +4,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="sending_sms">Sending SMS</string>
+    <string name="inprogress">Verification in Progress</string>
+    <string name="failed">Verification Failed</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_internet">Oops! Seems like you don\'t have active internet connection in your phone.</string>
     <string-array name="acts_array">

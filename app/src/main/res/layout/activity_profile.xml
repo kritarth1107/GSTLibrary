@@ -178,83 +178,6 @@
                     android:layout_weight="0.20">
                     <ImageView
                         android:padding="25dp"
-                        android:src="@drawable/ic_businessman"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="0.8">
-                    <TextView
-                        android:textSize="12sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Your Profession"/>
-                    <TextView
-                        android:id="@+id/ProfileProfession"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Student"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:gravity="center"
-                    android:background="@drawable/circle_shadow"
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="0.20">
-                    <ImageView
-                        android:padding="25dp"
-                        android:src="@drawable/ic_maps_and_flags"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="0.8">
-                    <TextView
-                        android:textSize="12sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Your City"/>
-
-                    <TextView
-                        android:id="@+id/ProfileCity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Raipur"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:gravity="center"
-                    android:background="@drawable/circle_shadow"
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="0.20">
-                    <ImageView
-                        android:padding="25dp"
                         android:src="@drawable/ic_credit_cards_payment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
@@ -289,6 +212,7 @@
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <!--
             <LinearLayout
                 android:clickable="true"
                 android:foreground="?android:selectableItemBackground"
@@ -306,7 +230,7 @@
                     android:textStyle="bold"
                     android:text="Update Profile"/>
             </LinearLayout>
-
+             -->
             <LinearLayout
                 android:id="@+id/LogoutLayout"
                 android:clickable="true"

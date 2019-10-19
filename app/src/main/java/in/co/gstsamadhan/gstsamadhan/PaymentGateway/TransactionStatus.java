@@ -81,10 +81,10 @@ public class TransactionStatus extends AppCompatActivity {
                 statusImage.setImageResource(R.drawable.ic_cross);
                 break;
             default:
-                    statusHeader.setText("Something Went Wrong");
-                    statusImage.setImageResource(R.drawable.ic_warning);
-                    statusColor.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
-                    break;
+                statusHeader.setText("Something Went Wrong");
+                statusImage.setImageResource(R.drawable.ic_warning);
+                statusColor.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+                break;
         }
 
         amount.setText(TxAmount);

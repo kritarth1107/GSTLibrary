@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+<LinearLayout
+    android:padding="10dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_weight="0.25"
+        android:id="@+id/profile_image"
+        android:src="@mipmap/ic_launcher"/>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:layout_weight="0.7"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/expert_name"
+                android:maxLines="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Expert's Name"/>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/premium"
+                android:layout_marginLeft="10dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/verification_batch"/>
+        </LinearLayout>
+        <TextView
+            android:textSize="13sp"
+            android:id="@+id/expert_designation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CA,CS,DISA"/>
+        <TextView
+            android:id="@+id/exp_exp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="10sp"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="[GST ADVISORY,GST REPRESENTATION,GST LITIGATION]"/>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

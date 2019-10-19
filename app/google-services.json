@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "300320795411",
+    "firebase_url": "https://gst-library.firebaseio.com",
+    "project_id": "gst-library",
+    "storage_bucket": "gst-library.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300320795411:android:66b01f8a4535f7af73c8e6",
+        "android_client_info": {
+          "package_name": "in.co.gstsamadhan.gstsamadhan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300320795411-ussc96gjh2q8ier146v0v72f0tnua8ns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQqf4R2Y7gGb3mIO_72bDwB-XiVoygNxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300320795411-ussc96gjh2q8ier146v0v72f0tnua8ns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

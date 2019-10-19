@@ -43,8 +43,6 @@ public class ProfileActivity extends AppCompatActivity {
         name = findViewById(R.id.ProfileName);
         email = findViewById(R.id.ProfileEmail);
         phone = findViewById(R.id.ProfileMobile);
-        profession = findViewById(R.id.ProfileProfession);
-        city = findViewById(R.id.ProfileCity);
 
         HashMap<String, String> user = sessionManager.getUserDetail();
 

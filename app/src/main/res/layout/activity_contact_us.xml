@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUs">
+<LinearLayout
+    android:layout_margin="25dp"
+    android:orientation="vertical"
+    android:layout_centerInParent="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:src="@drawable/new_logo"/>
+    <TextView
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We are on a journey to serve each and every individual by offering a real-time GST Library along with abundant services and E-Learning courses for Emerging GST Practitioners &amp; Students."/>
+<TextView
+    android:textSize="18sp"
+    android:layout_marginTop="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Contact:"
+    android:textColor="@android:color/black"
+    android:textStyle="bold"/>
+    <TextView
+        android:textColor="@android:color/black"
+    android:id="@+id/Contact_email"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="info@gstsamadhan.co.in"
+    android:layout_marginTop="4dp"
+    />
+    <TextView
+        android:textColor="@android:color/black"
+        android:id="@+id/Contact_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+91 74899 24211"
+        android:layout_marginTop="4dp"
+        />
+</LinearLayout>
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="-50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_width="170dp"
+        android:layout_height="250dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_undraw_mail_box"/>
+</RelativeLayout>

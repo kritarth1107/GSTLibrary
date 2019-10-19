@@ -3,7 +3,7 @@ package in.co.gstsamadhan.gstsamadhan.model;
 public class News {
     private String id;
     private String title;
-    private String hindiTitle;
+    private String hindi_title;
     private String slug;
     private String thumbnail;
     private String content;
@@ -20,7 +20,7 @@ public class News {
     public News(String id, String title, String hindiTitle, String slug, String thumbnail, String content, String author, String attachment, String dated, String tags, String createdAt, String updatedAt, String status) {
         this.id = id;
         this.title = title;
-        this.hindiTitle = hindiTitle;
+        this.hindi_title = hindiTitle;
         this.slug = slug;
         this.thumbnail = thumbnail;
         this.content = content;
@@ -50,11 +50,11 @@ public class News {
     }
 
     public String getHindiTitle() {
-        return hindiTitle;
+        return hindi_title;
     }
 
     public void setHindiTitle(String hindiTitle) {
-        this.hindiTitle = hindiTitle;
+        this.hindi_title = hindiTitle;
     }
 
     public String getSlug() {
