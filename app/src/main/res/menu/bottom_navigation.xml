@@ -10,9 +10,9 @@
         android:title="News"
         android:icon="@drawable/ic_newspaper" />
 
-    <item android:id="@+id/wallet_bottom_navigation"
-        android:title="Wallet"
-        android:icon="@drawable/ic_wallet" />
+    <item android:id="@+id/profile_bottom_navigation"
+        android:title="Profile"
+        android:icon="@drawable/ic_user" />
 
 
 </menu>

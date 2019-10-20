@@ -82,7 +82,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         holder.newsAuthor.setText(mData.get(position).getAuthor());
         Glide.with(mContext).load(mData.get(position).getThumbnail()).apply(option).into(holder.thumbnail);
         String hCheck = mData.get(position).getHindiTitle();
-        if(hCheck.equals("")){
+        if(hCheck.equals("") || hCheck.startsWith("\t")){
             holder.tv_title.setText(mData.get(position).getTitle());
         }
         else {

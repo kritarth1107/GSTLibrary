@@ -22,6 +22,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -53,6 +54,8 @@ public class ActsActivity extends AppCompatActivity {
     Spinner acts_array;
     View bg;
     private static final String TAG = "MainActivity";
+    String catg=" ",year__="";
+    List<Acts> retrievedList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +105,8 @@ public class ActsActivity extends AppCompatActivity {
         });
 
         //spinner
+
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.acts_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         acts_array.setAdapter(adapter);
@@ -118,6 +123,7 @@ public class ActsActivity extends AppCompatActivity {
         ApplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                catg = acts_array.getSelectedItem().toString().trim();
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 bg.setVisibility(View.GONE);
                 toolbar.setEnabled(true);
@@ -137,27 +143,26 @@ public class ActsActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 //retrieveValues(charSequence.toString())/*(charSequence.toString())*/;
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
-                retrieveValues(editable.toString())/*(charSequence.toString())*/;
+                retrieveValues(editable.toString(),catg)/*(charSequence.toString())*/;
             }
 
         });
-       retrieveValues("");
+       retrieveValues(KeywordEditText.getText().toString().trim(),catg);
 
 
 
     }//OnCreate End
 
-    private void retrieveValues(final String Keyword) {
+    private void retrieveValues(final String Keyword,final String category) {
         if(!isConnected(ActsActivity.this)){
             shimmerFrameLayout.setVisibility(View.GONE);
             NOaccessInternet.setVisibility(View.VISIBLE);
             RetryButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    retrieveValues(Keyword);
+                    retrieveValues(Keyword,category);
                 }
             });
         }
@@ -172,7 +177,8 @@ public class ActsActivity extends AppCompatActivity {
             call.enqueue(new Callback<List<Acts>>() {
                 @Override
                 public void onResponse(Call<List<Acts>> call, Response<List<Acts>> response) {
-                    List<Acts> retrievedList = response.body();
+                    retrievedList = new ArrayList<>();
+                    retrievedList = response.body();
                     ActsAdapter actsAdapter = new ActsAdapter(getApplicationContext(),retrievedList) ;
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     recyclerView.setAdapter(actsAdapter);
@@ -183,6 +189,8 @@ public class ActsActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<List<Acts>> call, Throwable t) {
+                    shimmerFrameLayout.stopShimmerAnimation();
+                    shimmerFrameLayout.setVisibility(View.GONE);
 
                 }
             });

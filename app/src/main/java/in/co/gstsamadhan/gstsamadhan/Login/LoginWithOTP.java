@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.msg91.sendotpandroid.library.PhoneNumberUtils;
 import com.msg91.sendotpandroid.library.internal.Iso2Phone;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -32,19 +33,22 @@ public class LoginWithOTP extends AppCompatActivity {
 
     private EditText mPhoneNumber;
     private Button mSmsButton;
-
+    MKLoader LoginProgressbar;
+    String phoneNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login_with_otp);
-
+        LoginProgressbar = findViewById(R.id.LoginProgressbar);
         mPhoneNumber = (EditText) findViewById(R.id.RegMobileNumber);
         mSmsButton = (Button) findViewById(R.id.LoginButton);
         mSmsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openActivity(getE164Number());
+                phoneNumber = getE164Number();
+                openActivity(phoneNumber);
+
             }
         });
 

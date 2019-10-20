@@ -170,9 +170,11 @@ public interface GstSamadhanApi {
     );
 
     //Generate Login OTP
-    @GET("generate")
+
+    @FormUrlEncoded
+    @POST("generate")
     Call<Generate> generateOtp(
-            @Query("mobile") String mobile
+            @Field("mobile") String mobile
     );
 
     //Generate Login OTP

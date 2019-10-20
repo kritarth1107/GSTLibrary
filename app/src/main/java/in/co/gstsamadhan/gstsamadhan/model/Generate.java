@@ -1,20 +1,16 @@
 package in.co.gstsamadhan.gstsamadhan.model;
 
 public class Generate {
-    String success,mobile,otp;
+    String mobile, otp;
+    boolean success;
 
-    public Generate(String success, String mobile, String otp) {
-        this.success = success;
+
+    public Generate() {
+    }
+
+    public Generate(String mobile, String otp, boolean success) {
         this.mobile = mobile;
         this.otp = otp;
-    }
-      public Generate(){}
-
-    public String getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(String success) {
         this.success = success;
     }
 
@@ -33,4 +29,13 @@ public class Generate {
     public void setOtp(String otp) {
         this.otp = otp;
     }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 }
+

@@ -59,7 +59,7 @@ public class NewsSliderAdapter extends PagerAdapter {
         TextView slide_date = (TextView) view.findViewById(R.id.news_date);
         TextView slide_author = (TextView) view.findViewById(R.id.news_author);
         String hCheck = mData.get(position).getHindiTitle();
-        if(hCheck.equals("")){
+        if(hCheck.equals("") || hCheck.startsWith("\t")){
             slide_heading.setText(mData.get(position).getTitle());
         }
         else {

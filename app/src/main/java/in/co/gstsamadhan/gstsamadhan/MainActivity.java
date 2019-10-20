@@ -95,15 +95,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                 startActivity(new Intent(MainActivity.this,ComingSoon.class));
                                 break;
-                            case R.id.wallet_bottom_navigation:/*
-                                if (frag.equals("Wallet")){
-
-                                }
-                                else{
-                                    frag="Wallet";
-                                    loadFragment(new ProfileFragment());
-                                } */
-                                startActivity(new Intent(MainActivity.this,ComingSoon.class));
+                            case R.id.profile_bottom_navigation:
+                                if(sessionManager.isLoggin())
+                                    startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                                else
+                                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
 
 
                                 break;
@@ -177,9 +173,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_logout:
                 sessionManager.logout();
                 break;
-
             case R.id.nav_profile:
-                startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                if(sessionManager.isLoggin())
+                    startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                else
+                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
                 break;
             case R.id.nav_pp:
                 startActivity(new Intent(MainActivity.this,PrivacyPolicy.class));

@@ -132,53 +132,5 @@ public class Register_Step_2 extends AppCompatActivity {
                 Toast.makeText(Register_Step_2.this, t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
-        /*
-        StringRequest request = new StringRequest(Request.Method.POST, "http://gstsamadhan.co.in/gstapi/register", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try{
-                    JSONObject jsonObject = new JSONObject(response);
-                    String success = jsonObject.getString("registration");
-                    if(success.equals("1")){
-                        String client_id = jsonObject.getString("id").trim();
-                        String client_name = jsonObject.getString("fname").trim();
-                        String client_email = jsonObject.getString("email").trim();
-                        String client_mobile = jsonObject.getString("mobile").trim();
-                        sessionManager.createSession(client_id,client_name,client_email,client_mobile,"null");
-                        Intent i = new Intent(Register_Step_2.this, PricingActivity.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                    }
-                    else if(success.equals("0")){
-                    }
-                }catch (JSONException e){
-                    e.printStackTrace();
-                    Toast.makeText(Register_Step_2.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Register_Step_2.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("name",Name);
-                params.put("email",Email);
-                params.put("mobile",Mobile);
-                params.put("password",Password);
-                params.put("state",State);
-                params.put("city",City);
-                params.put("profession",Profession);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(request);
-        */
     }
 }

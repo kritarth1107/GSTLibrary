@@ -36,7 +36,7 @@
      android:layout_centerHorizontal="true"
      android:layout_width="150dp"
      android:layout_height="150dp"
-     android:src="@drawable/ic_user"/>
+     android:src="@drawable/ic_profile_user"/>
 <ScrollView
 
     android:layout_below="@id/ImageViewProfile"

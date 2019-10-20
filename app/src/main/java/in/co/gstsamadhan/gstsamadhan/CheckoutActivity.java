@@ -40,6 +40,7 @@ import in.co.gstsamadhan.gstsamadhan.Registration.Register_Step_2;
 import in.co.gstsamadhan.gstsamadhan.Session.SessionManager;
 import in.co.gstsamadhan.gstsamadhan.model.Acts;
 import in.co.gstsamadhan.gstsamadhan.model.Coupon;
+import in.co.gstsamadhan.gstsamadhan.model.Generate;
 import in.co.gstsamadhan.gstsamadhan.model.Purchase;
 import in.co.gstsamadhan.gstsamadhan.model.Registration;
 import network.GstSamadhanApi;
@@ -397,6 +398,8 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
                 //once we get the checksum we will initiailize the payment.
                 //the method is taking the checksum we got and the paytm object as the parameter
                 if(paytm.getTxnAmount().equals("0")){
+
+                    send_sms(mCLientMobile,"0",TransactionID,mCLientName,"");
                     submitTransaction("TXN_SUCCESS","0",paytm.getOrderId(),"No-PaymentMode","No_Bank_Transaction",TransactionID,"00-abc-0000");
 
                 }
@@ -534,6 +537,7 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
                 String success = response.body().getTransaction().trim();
                 if(success.equals("1")){
                     String success_plan_id = response.body().getPlan_id();
+                    send_sms(mCLientMobile,TXNAMOUNT,TXNID,mCLientName,success_plan_id);
                     sessionManager.createSession(mCLientID,mCLientName,mCLientEmail,mCLientMobile,success_plan_id);
                     Intent intent =  new Intent(CheckoutActivity.this, TransactionStatus.class);
                     intent.putExtra("TxStatus",status);
@@ -570,5 +574,39 @@ public class CheckoutActivity extends AppCompatActivity implements PaytmPaymentT
 
 
 
+    }
+
+
+    public void send_sms(String mobile,String TXNAMOUNT, String TXNID,String name,String success_plan_id){
+        String plan = "";
+        switch (success_plan_id){
+            case "1":plan = "Basic Plan";
+                break;
+            case "2":plan = "Standard Plan";
+                break;
+            case "3":plan = "Expert Plan";
+                break;
+        }
+       String msg = "Dear "+name+" Ji! \n" +
+                "Your Transaction for \n" +
+                "Trans Id : "+TXNID+" of Rs "+TXNAMOUNT+"("+plan+") is \n" +
+                "Successful with GST Samadhan.\n" +
+                "\n" +
+                "for any query: 7489924211";
+        GstSamadhanApi gstSamadhanApi = RetrofitClient.getApiClient().create(GstSamadhanApi.class);
+
+        Call<Generate> call = gstSamadhanApi.send_sms(mobile,msg);
+        call.enqueue(new Callback<Generate>() {
+            @Override
+            public void onResponse(Call<Generate> call, Response<Generate> response) {
+
+
+            }
+
+            @Override
+            public void onFailure(Call<Generate> call, Throwable t) {
+                Toast.makeText(CheckoutActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
